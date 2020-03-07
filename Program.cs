@@ -65,5 +65,10 @@ namespace MS_70_483
             #endif
 
         }
+
+        public static bool Dowork()
+        {
+            return true;
+        }
     }
 }
