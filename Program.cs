@@ -39,24 +39,27 @@ namespace MS_70_483
             // Option.A <Answer>
             // result = (List<string>)myMatches.GetEnumerator();
 
-            // ex.1 列挙子を利用したパターン
-            IEnumerator enumerator = myMatches.GetEnumerator();
-            while (enumerator.MoveNext())
-            {
-                Match val = (Match)enumerator.Current;
-                Console.WriteLine(val.Value);
-            }
-
-            // ex.2 foreach 文を利用したパターン
-            foreach (Match myMatch in myMatches)
-            {
-                Console.WriteLine(myMatch.Value);
-            }
-
             // Note:
             // MatchCollection.GetEnumeratorメソッドは、コレクションを反復処理する列挙子を返します。
             // ?-- デバッグするとエラー
             // System.InvalidCastException: 'Unable to cast object of type 'Enumerator' to type 'System.Collections.Generic.List`1[System.String]'.'
+            // 解決方法：
+            // ex.1 列挙子を利用したパターン
+            /*            IEnumerator enumerator = myMatches.GetEnumerator();
+                        while (enumerator.MoveNext())
+                        {
+                            Match val = (Match)enumerator.Current;
+                            Console.WriteLine(val.Value);
+                        }
+
+                        // ex.2 foreach 文を利用したパターン
+                        foreach (Match myMatch in myMatches)
+                        {
+                            Console.WriteLine(myMatch.Value);
+                        }*/
+
+            // ?-- 問題に対して疑問。このTestIfWebSiteでは、何を返したかったのだろう。
+
 
             // Option.B
             // result = (List<string>)myMatches.SyncRoot();

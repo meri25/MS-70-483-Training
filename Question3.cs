@@ -13,9 +13,17 @@ namespace MS_70_483
             {
                 this.DoWork();
             }
-            catch
+            catch (ContosoValidationException ex)
             {
-
+                //Log(ex);
+            }
+            catch (ContosoException ex)
+            {
+               // Log(ex);
+            }
+            catch (Exception ex)
+            {
+                //Log(ex);
             }
         }
         
@@ -30,7 +38,7 @@ namespace MS_70_483
 
     public class ContosoException : System.Exception
     {
-        static void Log(Exception ex)
+        public void Log(Exception ex)
         {
             Console.WriteLine($"ContosoException: {ex}");
         }
@@ -39,7 +47,7 @@ namespace MS_70_483
 
     public  class ContosoDbException : ContosoException
     {
-        static void Log(ContosoException ex)
+        public void Log(ContosoException ex)
         {
             Console.WriteLine($"ContosoDbException: {ex}");
         }
@@ -47,7 +55,7 @@ namespace MS_70_483
 
     public class ContosoValidationException : ContosoException
     { 
-        static void Log(ContosoException ex)
+        public void Log(ContosoException ex)
         {
             Console.WriteLine($"ContosoValidationException: {ex}");
         }
