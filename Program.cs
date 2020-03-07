@@ -12,7 +12,7 @@ namespace MS_70_483
         {
             #region q.1
             // Console.WriteLine("--Q1--");
-            // TestIfWebSite("http://www.google.comhttp://www.googlea.comhttp://www.googleb.com");
+            TestIfWebSite("http://www.google.comhttp://www.googlea.comhttp://www.googleb.com");
             #endregion
 
             #region q.2
@@ -37,7 +37,22 @@ namespace MS_70_483
             MatchCollection myMatches = Regex.Matches(url, pattern);
 
             // Option.A <Answer>
-            result = (List<string>)myMatches.GetEnumerator();
+            // result = (List<string>)myMatches.GetEnumerator();
+
+            // ex.1 列挙子を利用したパターン
+            IEnumerator enumerator = myMatches.GetEnumerator();
+            while (enumerator.MoveNext())
+            {
+                Match val = (Match)enumerator.Current;
+                Console.WriteLine(val.Value);
+            }
+
+            // ex.2 foreach 文を利用したパターン
+            foreach (Match myMatch in myMatches)
+            {
+                Console.WriteLine(myMatch.Value);
+            }
+
             // Note:
             // MatchCollection.GetEnumeratorメソッドは、コレクションを反復処理する列挙子を返します。
             // ?-- デバッグするとエラー
