@@ -43,7 +43,7 @@ What should you do?
 
 Answer:D
 Exlanation:
-Explanation:
+※ [Issue#4](https://github.com/meri25/MS-70-483-Training/issues/4)を参照。
 設問の条件は、下記2点。
 1. Createメソッドを呼び出して、Connectionの新しいインスタンスを他のクラスでのみ作成できるようにする必要があります。
 2. ソリューションでは、クラスがConnectionから継承できるようにする必要があります。
