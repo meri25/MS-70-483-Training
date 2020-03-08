@@ -43,6 +43,11 @@ What should you do?
 
 Answer:D
 Exlanation:
+Explanation:
+設問の条件は、下記2点。
+1. Createメソッドを呼び出して、Connectionの新しいインスタンスを他のクラスでのみ作成できるようにする必要があります。
+2. ソリューションでは、クラスがConnectionから継承できるようにする必要があります。
+
 静的クラスの役割
 - 静的メンバーのみが含まれる
 - インスタンス化できない
@@ -58,7 +63,45 @@ Option.2
 [参照](https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/classes-and-structs/#static-types)
 
 Option.3
-なぜ不正解なのかわからない。
+設問の条件2を満たしていない。
+親クラスのコンストラクターが `private` なため、子クラスから親クラスのコンストラクターが呼べない。
+そもそもコンパイルエラーになる。
 
 Option.4
-なぜ正解なのかわからない
+設問の条件を満たす。
+親クラスのコンストラクターが `protected` なため、子クラスから親クラスのコンストラクターを参照可能。
+１つ目の要件として Create メソッドを経由して Connection クラスのインスタンスを生成したいとある。
+Connection クラスのコンストラクターの修飾子を public にすると、Create メソッドじゃなくても new することで Connection クラスのインスタンスが生成可能になってしまう。
+その為、外部から new されたくない、でも子クラスからは参照できるようにしたい、という要件を満たすために protected にする必要がある。
+
+
+# Question.7
+
+A developer designs an interface that contains the following code:
+
+※ 対象のコードは、Question7 を参照してください。
+
+A developer designs an interface that contains the following code:
+
+原文
+| Statement                                                                       | Yes | No |
+|---------------------------------------------------------------------------------|-----|----|
+| If you call Method1 from an instance of Class 2, an exception will be thrown.   |     |    |
+| If you cast an instance of Class1 in INewInstance, an exception will be thrown. |     |    |
+| Class2 uses an implicit implementation of INewInstance.                         |     |    |
+
+日本語約訳
+| ステートメント| はい| いいえ|
+| ------------------------------------------------- -------------------------------- | ----- | ---- |
+| クラス2のインスタンスからMethod1を呼び出すと、例外がスローされます。　　　　　　　　　　　|　　　　 |　　　 |
+| INewInstanceでClass1のインスタンスをキャストすると、例外がスローされます。 　　　　　　　|　　　　 |　　　 |
+| Class2は、INewInstanceの暗黙的な実装を使用します。 　　　　　　　　　　　　　　　　　　　|　　　　 |　　　 |
+
+Answer:
+| Statement                                                                       | Yes | No |
+|---------------------------------------------------------------------------------|-----|----|
+| If you call Method1 from an instance of Class 2, an exception will be thrown.   |  X  |    |
+| If you cast an instance of Class1 in INewInstance, an exception will be thrown. |     | X  |
+| Class2 uses an implicit implementation of INewInstance.                         |     | X  |
+
+
