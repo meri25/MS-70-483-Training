@@ -91,11 +91,11 @@ A developer designs an interface that contains the following code:
 | Class2 uses an implicit implementation of INewInstance.                         |     |    |
 
 日本語約訳
-| ステートメント| はい| いいえ|
-| ------------------------------------------------- -------------------------------- | ----- | ---- |
-| クラス2のインスタンスからMethod1を呼び出すと、例外がスローされます。　　　　　　　　　　　|　　　　 |　　　 |
-| INewInstanceでClass1のインスタンスをキャストすると、例外がスローされます。 　　　　　　　|　　　　 |　　　 |
-| Class2は、INewInstanceの暗黙的な実装を使用します。 　　　　　　　　　　　　　　　　　　　|　　　　 |　　　 |
+| ステートメント| はい     | いいえ |
+| ---------------------------------------------------------------------------------------------- | -------- | ------ |
+| クラス 2 のインスタンスから Method1 を呼び出すと、例外がスローされます。　　　　　　　　　　　 | 　　　　 | 　　　 |
+| INewInstance で Class1 のインスタンスをキャストすると、例外がスローされます。 　　　　　　　   | 　　　　 | 　　　 |
+| Class2 は、INewInstance の暗黙的な実装を使用します。 　　　　　　　　　　　　　　　　　　　    | 　　　　 | 　　　 |
 
 Answer:
 | Statement                                                                       | Yes | No |
