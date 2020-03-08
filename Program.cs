@@ -25,8 +25,16 @@ namespace MS_70_483
             #endregion
 
             #region q.4
-            Console.WriteLine("Q.4");
-            Question4();
+            // Console.WriteLine("--Q.4--");
+            // Question4();
+            #endregion
+
+            #region q.5
+            // Console.WriteLine("--Q5--");
+            #endregion
+
+            #region q.6
+            Console.WriteLine("Q6");
             #endregion
 
         }

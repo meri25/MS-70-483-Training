@@ -33,3 +33,32 @@ Explanation:
 doubleキーワードは、64ビット浮動小数点値を格納する単純型を示します。
 floatキーワードは、32ビット浮動小数点値を格納する単純型を示します。
 参照：double（C＃リファレンス）
+
+# Question.6
+
+You have the following code (line numbers are included for reference only):
+You need to ensure that new instances of Connection can be created only by other classes by calling the Create method. 
+The solution must allow classes to inherit from Connection.
+What should you do?
+
+Answer:
+Exlanation:
+静的クラスの役割
+- 静的メンバーのみが含まれる
+- インスタンス化できない
+- シールされている
+- インスタンス コンストラクターを含めることができない
+
+Option.1
+抽象クラスは直接インスタンス化することはできない。
+[参照](https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/classes-and-structs/#inheritance)
+
+Option.2
+静的クラスを new キーワードでインスタンス化することはできない。
+[参照](https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/classes-and-structs/#static-types)
+
+Option.3
+なぜ不正解なのかわからない。
+
+Option.4
+なぜ正解なのかわからない
