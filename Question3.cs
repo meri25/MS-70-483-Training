@@ -7,7 +7,7 @@ namespace MS_70_483
     public class Question3
     {
 
-        public void question3()
+        public void start()
         {
             try
             {
@@ -36,9 +36,16 @@ namespace MS_70_483
 
 
 
-    public class ContosoException : System.Exception
+    public class ContosoException : Exception
     {
-        public void Log(Exception ex)
+        public ContosoNotFoundException()
+        {
+        }
+
+        public ContosoNotFoundException(string message)
+            :base(message) { }
+
+        public Log(Exception ex)
         {
             Console.WriteLine($"ContosoException: {ex}");
         }
@@ -47,6 +54,7 @@ namespace MS_70_483
 
     public  class ContosoDbException : ContosoException
     {
+
         public void Log(ContosoException ex)
         {
             Console.WriteLine($"ContosoDbException: {ex}");
