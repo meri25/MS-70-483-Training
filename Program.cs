@@ -12,7 +12,7 @@ namespace MS_70_483
         {
             #region q.1
             // Console.WriteLine("--Q1--");
-            TestIfWebSite("http://www.google.comhttp://www.googlea.comhttp://www.googleb.com");
+            // TestIfWebSite("http://www.google.comhttp://www.googlea.comhttp://www.googleb.com");
             #endregion
 
             #region q.2
@@ -21,7 +21,12 @@ namespace MS_70_483
             #endregion
 
             #region q.3
-            Console.WriteLine("--Q3--");
+            //Console.WriteLine("--Q3--");
+            #endregion
+
+            #region q.4
+            Console.WriteLine("Q.4");
+            Question4();
             #endregion
 
         }
@@ -84,9 +89,15 @@ namespace MS_70_483
 
         }
 
-        public static bool Dowork()
+        private static List<Type> Question4()
         {
-            return true;
+            List<Type> types = new List<Type>();
+/*
+            types = (AppDomain.CurrentDomain.GetAssemblies()
+                .SelectMany(t => t.GetType(), t => new { t })
+                .Where(t => t.IsClass && t.Assembly == this.GetType().select)).ToList<Type>();
+*/
+            return types;
         }
     }
 }
