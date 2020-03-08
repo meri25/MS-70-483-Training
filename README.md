@@ -41,7 +41,7 @@ You need to ensure that new instances of Connection can be created only by other
 The solution must allow classes to inherit from Connection.
 What should you do?
 
-Answer:
+Answer:D
 Exlanation:
 静的クラスの役割
 - 静的メンバーのみが含まれる
