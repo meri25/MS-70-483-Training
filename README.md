@@ -1,5 +1,8 @@
 ﻿# MS-70-483-Training
 
+お世話になっているサイト
+https://www.itshiken.jp/70-483-shiken.html
+
 ## Question.1
 
 You write the following method (line numbers are included for reference only):
@@ -11,7 +14,6 @@ Which code should you insert at code?
 ※ 該当のコードは、Program.cs/Main の Q1 を参照してください。
 
 Answer:A
-
 
 # Question.4
 
@@ -104,4 +106,15 @@ Answer:
 | If you cast an instance of Class1 in INewInstance, an exception will be thrown. |     | X  |
 | Class2 uses an implicit implementation of INewInstance.                         |     | X  |
 
+Explanation:
+Class2 uses an implicit implementation of INewInstance.  
+→明示的に　`INewInterface.Method1()` と定義しているので、この命題は偽。
 
+# Question.8
+
+You have the following class. (Line numbers are included for reference only.)
+You need to complete the doOperation method to meet the following requirements:
+• If AddNumb is passed as the operationName parameter, the AddNumb function is called.
+• If SubNumb is passed as the operationName parameter, the SubNumb function is called.
+Which code should you insert at line 16? Develop the solution by selecting and arranging the required code blocks in the correct order. 
+You may not need all of the code blocks.
