@@ -166,29 +166,30 @@ Option.D
 
 `Assembly.GetExecutingAssembly();`
 
-Answer:A
-Exception:
+**Answer: A**
+**Exception:**
 
 [Assembly クラス](https://docs.microsoft.com/ja-jp/dotnet/api/system.reflection.assembly?view=netframework-4.8)
-Option.A
+
+**Option.A**
 
 `Assembly.GetAssembly();`
 
 指定した型が定義されている、現在読み込み済みのアセンブリを取得する。
 
-Option.B
+**Option.B**
 
 `this.GetType();`
 
 指定された型を表す Type オブジェクトを取得する。
 
-Option.C
+**Option.C**
 
 `Assembly.Load();`
 
 アセンブリを読み込む。
 
-Option.D
+**Option.D**
 
 `Assembly.GetExecutingAssembly();`
 
@@ -202,10 +203,13 @@ If the data processing operation fails, a second operation must clean up any res
 You need to ensure that the second operation is invoked only if the data processing operation throws an unhandled exception.
 What should you do?
 
-A. Create a TaskCompletionSource<T> object and call the TrySetException() method of the object.
-B. Create a task by calling the Task.ContinueWith() method.
-C. Examine the Task.Status property immediately after the call to the Task.Run() method.
-D. Create a task inside the existing Task.Run() method by using the AttachedToParent option.
+**A.** Create a TaskCompletionSource<T> object and call the TrySetException() method of the object.
+
+**B.** Create a task by calling the Task.ContinueWith() method.
+
+**C.** Examine the Task.Status property immediately after the call to the Task.Run() method.
+
+**D.** Create a task inside the existing Task.Run() method by using the AttachedToParent option.
 
 ---
 
@@ -215,15 +219,19 @@ Task.Run（）メソッドを使用して、長時間実行されるデータ処
 データ処理操作で未処理の例外がスローされた場合にのみ、2番目の操作が呼び出されるようにする必要があります。
 あなたは何をするべきか？
 
-A. TaskCompletionSource <T>オブジェクトを作成し、オブジェクトのTrySetException（）メソッドを呼び出します。
-B. Task.ContinueWith（）メソッドを呼び出してタスクを作成します。
-C. Task.Run（）メソッドを呼び出した直後にTask.Statusプロパティを調べます。
-D. AttachedToParentオプションを使用して、既存のTask.Run（）メソッド内にタスクを作成します。
+**A.** TaskCompletionSource <T>オブジェクトを作成し、オブジェクトのTrySetException（）メソッドを呼び出します。
+
+**B.** Task.ContinueWith（）メソッドを呼び出してタスクを作成します。
+
+**C.** Task.Run（）メソッドを呼び出した直後にTask.Statusプロパティを調べます。
+
+**D.** AttachedToParentオプションを使用して、既存のTask.Run（）メソッド内にタスクを作成します。
 
 Answer:B
 Explanation:
 
 **Taskクラス**
+
 - 値を返さない
 - 非同期に実行する操作
 - メインアプリケーションスレッドで同期的に実行されるのではなく、スレッドプールの中で非同期的に実行される。
@@ -236,19 +244,23 @@ Explanation:
 
 ※ Question1_3.cs を参照のこと
 
-- Optiopn.A
+**Optiopn.A**
+
 `TaskCompletionSouce<TResult>.TrySetException()`
 [TaskCompletionSource<TResult>.TrySetException メソッド](https://docs.microsoft.com/ja-jp/dotnet/api/system.threading.tasks.taskcompletionsource-1.trysetexception?view=netframework-4.8)
 
-- Option.B
+**Option.B**
+
 `Task.ContinureWith()`
 ターゲットの `Task` が完了したときに非同期に実行する継続タスクを作成する
 [Task.ContinueWith メソッド](https://docs.microsoft.com/ja-jp/dotnet/api/system.threading.tasks.task.continuewith?view=netframework-4.8)
 
-- Option.C
+**Option.C**
+
 上記、Task クラスを参照。
 
-- Option.D
+**Option.D**
+
 [アタッチされた子タスクとデタッチされた子タスク](https://docs.microsoft.com/ja-jp/dotnet/standard/parallel-programming/attached-and-detached-child-tasks)
 
 # Question.1-4
@@ -273,8 +285,9 @@ Which two actions should you perform?
 
 ※ Question1_4.cs を参照すること。
 
-Answer: A, B
-Explanation:
+**Answer: A, B**
+
+**Explanation:**
 
 `value`
 
@@ -314,8 +327,10 @@ ExceptionLoggerクラスのLogException（）メソッドを使用して、す�
 
 ※ Question1_5.cs を参照すること。
 
-Answer: A
-Explanation:
+**Answer: A**
+
+**Explanation:**
+
 例外がスローされたときに伝わる情報の一部はスタックトレース。
 スタックトレースは、次のメソッドで始まるメソッド呼び出し階層のリスト。
 つまり、例外をスローし、例外をキャッチするメソッドで終了する。
@@ -331,16 +346,28 @@ Explanation:
 	- そのスレッドの実行コンテキスト情報を保存する。
 	- 例外ハンドラ or 終了ハンドラを実行する...?
 
-Option.A
+**Option.A**
+
 正解。
 
-Option.B
+**Option.B**
 
 `throw` ステートメントに例外を指定しているので不適。
 
-Option.C
+**Option.C**
+
 発生した例外ではなく、新しく例外を生成しているので不適。
 
-Option.D
+**Option.D**
+
 Opction.C と同じ。
 
+# Question.1-6
+
+You are developing an application that includes a class named UserTracker. 
+The application includes the following code segment. (Line numbers are included for reference only.)
+
+---
+
+UserTrackerという名前のクラスを含むアプリケーションを開発しています。 
+アプリケーションには、次のコードセグメントが含まれています。 （行番号は参照のみ。）
