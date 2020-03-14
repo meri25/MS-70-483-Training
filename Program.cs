@@ -37,6 +37,17 @@ namespace MS_70_483
             Console.WriteLine("Q6");
             #endregion
 
+            #region q.1-1
+            /*            Console.WriteLine("Q1-1");
+                        Caluculate(3_000.5F);*/
+            #endregion
+
+            #region
+            Console.WriteLine("Q1-3");
+            // Question1_3.TaskTraining();
+            // Question1_3.RunTraining();
+            #endregion
+
         }
 
         private static List<string> TestIfWebSite(string url)
@@ -107,5 +118,21 @@ namespace MS_70_483
 */
             return types;
         }
+
+        #region q.1-1
+        public static void Caluculate(float amount)
+        {
+            object amountRef = amount;
+
+            // Options
+            // Option.A
+            // int balance = (int)(float)amountRef;
+
+            // Option.B
+            int balance = (int)amountRef;
+
+            Console.WriteLine(balance);
+        }
+        #endregion
     }
 }

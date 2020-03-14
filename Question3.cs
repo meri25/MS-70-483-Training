@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -38,8 +38,9 @@ namespace MS_70_483
 
     public class ContosoException : Exception
     {
-        public ContosoNotFoundException()
+ *//*       public ContosoNotFoundException()
         {
+            ContosoDbException();
         }
 
         public ContosoNotFoundException(string message)
@@ -49,7 +50,7 @@ namespace MS_70_483
         {
             Console.WriteLine($"ContosoException: {ex}");
         }
-
+        *//*
     }
 
     public  class ContosoDbException : ContosoException
@@ -70,3 +71,4 @@ namespace MS_70_483
     }
 
 }
+*/
