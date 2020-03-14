@@ -49,9 +49,14 @@ namespace MS_70_483
             #endregion
 
             #region q.1-4
-            Console.WriteLine("q.1-4");
-            Question1_4.publisher.
+            // Console.WriteLine("q.1-4");
             #endregion
+
+            #region q.1-5
+            Console.WriteLine("q.1-5");
+            Question1_5.ExceptionTraining();
+            #endregion
+
 
         }
 

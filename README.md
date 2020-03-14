@@ -290,8 +290,57 @@ You are developing an application that uses structured exception handling.
 The application includes a class named ExceptionLogger.
 The ExceptionLogger class implements a method named LogException by using the following code segment:
 
+`public static void LogException(Exception ex)`
+
+You have the following requirements:
+Log all exceptions by using the LogException() method of the ExceptionLogger class.
+Rethrow the original exception, including the entire exception stack.
+You need to meet the requirements.
+Which code segment should you use?
+
 ---
 
 構造化例外処理を使用するアプリケーションを開発しています。 
 アプリケーションには、ExceptionLoggerという名前のクラスが含まれています。
 ExceptionLoggerクラスは、次のコードセグメントを使用してLogExceptionというメソッドを実装します。
+
+`public static void LogException(Exception ex)`
+
+次の要件があります。
+ExceptionLoggerクラスのLogException（）メソッドを使用して、すべての例外を記録します。
+例外スタック全体を含む元の例外を再スローします。
+要件を満たす必要があります。
+どのコードセグメントを使用する必要がありますか？
+
+※ Question1_5.cs を参照すること。
+
+Answer: A
+Explanation:
+例外がスローされたときに伝わる情報の一部はスタックトレース。
+スタックトレースは、次のメソッドで始まるメソッド呼び出し階層のリスト。
+つまり、例外をスローし、例外をキャッチするメソッドで終了する。
+`throw` ステートメントで例外を指定して例外を再スローすると、スタックトレースが再開され、
+例外を再スローした元のメソッドと現在のメソッドの間のメソッド呼び出し部分の情報が失われる。
+以上より、例外を含むスタックトレース情報を保つためには、例外を指定せずに `throw` ステートメントを私用する。
+
+**構造化例外処理（SEH: Structured Exception Handling）**
+
+- ハードウェア障害がど、の特例の例外コードの状況を適切に処理するための、C に対する Microsoft の拡張機能。
+- 例外が発生した場合に...[参考](https://www.keicode.com/windows/windows_exception_handling.php)
+	- その例外発生スレッドの処理に割り込む。
+	- そのスレッドの実行コンテキスト情報を保存する。
+	- 例外ハンドラ or 終了ハンドラを実行する...?
+
+Option.A
+正解。
+
+Option.B
+
+`throw` ステートメントに例外を指定しているので不適。
+
+Option.C
+発生した例外ではなく、新しく例外を生成しているので不適。
+
+Option.D
+Opction.C と同じ。
+
