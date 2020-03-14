@@ -13,6 +13,8 @@ Which code should you insert at code?
 
 ※ 該当のコードは、Program.cs/Main の Q1 を参照してください。
 
+---
+
 Answer:A
 
 # Question.4
@@ -30,8 +32,12 @@ Which code segment should you use?
 
 ※ 選択肢は、Question5.cs を参照してください。
 
-Answer:A
-Explanation:
+---
+
+**Answer: A **
+
+**Explanation: **
+
 doubleキーワードは、64ビット浮動小数点値を格納する単純型を示します。
 floatキーワードは、32ビット浮動小数点値を格納する単純型を示します。
 参照：double（C＃リファレンス）
@@ -43,33 +49,44 @@ You need to ensure that new instances of Connection can be created only by other
 The solution must allow classes to inherit from Connection.
 What should you do?
 
-Answer:D
-Exlanation:
+---
+
+**Answer: D**
+
+**Exlanation:**
+
 ※ [Issue#4](https://github.com/meri25/MS-70-483-Training/issues/4)を参照。
+
 設問の条件は、下記2点。
 1. Createメソッドを呼び出して、Connectionの新しいインスタンスを他のクラスでのみ作成できるようにする必要があります。
 2. ソリューションでは、クラスがConnectionから継承できるようにする必要があります。
 
-静的クラスの役割
+**静的クラスの役割**
 - 静的メンバーのみが含まれる
 - インスタンス化できない
 - シールされている
 - インスタンス コンストラクターを含めることができない
 
-Option.1
+**Option.1**
+
 抽象クラスは直接インスタンス化することはできない。
+
 [参照](https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/classes-and-structs/#inheritance)
 
-Option.2
+**Option.2**
+
 静的クラスを new キーワードでインスタンス化することはできない。
+
 [参照](https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/classes-and-structs/#static-types)
 
-Option.3
+**Option.3**
+
 設問の条件2を満たしていない。
 親クラスのコンストラクターが `private` なため、子クラスから親クラスのコンストラクターが呼べない。
 そもそもコンパイルエラーになる。
 
-Option.4
+**Option.4**
+
 設問の条件を満たす。
 親クラスのコンストラクターが `protected` なため、子クラスから親クラスのコンストラクターを参照可能。
 １つ目の要件として Create メソッドを経由して Connection クラスのインスタンスを生成したいとある。
@@ -92,21 +109,26 @@ A developer designs an interface that contains the following code:
 | If you cast an instance of Class1 in INewInstance, an exception will be thrown. |     |    |
 | Class2 uses an implicit implementation of INewInstance.                         |     |    |
 
-日本語約訳
+---
+
 | ステートメント| はい     | いいえ |
 | --------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------- |
 | クラス 2 のインスタンスから Method1 を呼び出すと、例外がスローされます。　　　　　　　　　　　 | 　　　　 | 　　　 |
 | INewInstance で Class1 のインスタンスをキャストすると、例外がスローされます。 　　　　　　　   | 　　　　 | 　　　 |
 | Class2 は、INewInstance の暗黙的な実装を使用します。 　　　　　　　　　　　　　　　　　　　    | 　　　　 | 　　　 |
 
-Answer:
+---
+
+**Answer:**
+
 | Statement                                                                       | Yes | No |
 |-------------------------------------------------------------------------------------------------------------------------|-------|------|
 | If you call Method1 from an instance of Class 2, an exception will be thrown.   |  X  |    |
 | If you cast an instance of Class1 in INewInstance, an exception will be thrown. |     | X  |
 | Class2 uses an implicit implementation of INewInstance.                         |     | X  |
 
-Explanation:
+**Explanation:**
+
 Class2 uses an implicit implementation of INewInstance.  
 →明示的に　`INewInterface.Method1()` と定義しているので、この命題は偽。
 
@@ -129,15 +151,19 @@ method. (Line numbers are included for reference only.)
 You need to ensure that the application does not throw exceptions on invalid conversions.
 Which code segment should you insert at line 04?
 
-Answer:
-Esplanation:
-Option.A
+---
 
-Option.B
+**Answer:**
+**Explanation:**
+
+**Option.A**
+
+**Option.B**
+
 System.InvalidCastException: 'Unable to cast object of type 'System.Single' to type 'System.Int32'.'
 System.Single（float）のオブジェクトを System.Int32 (int)にキャストできないエラーが発生する。
 
-Option.C 
+**Option.C** 
 
 # Question.1-2
 You are creating a console application by using C#.
@@ -150,21 +176,23 @@ C＃を使用してコンソールアプリケーションを作成していま�
 アプリケーションアセンブリにアクセスする必要があります。
 どのコードセグメントを使用する必要がありますか？
 
-Option.A
+**Option.A**
 
 `Assembly.GetAssembly(this);`
 
-Option.B
+**Option.B**
 
 `this.GetType();`
 
-Option.C
+**Option.C**
 
 `Assembly.Load();`
 
-Option.D
+**Option.D**
 
 `Assembly.GetExecutingAssembly();`
+
+---
 
 **Answer: A**
 **Exception:**
@@ -227,8 +255,11 @@ Task.Run（）メソッドを使用して、長時間実行されるデータ処
 
 **D.** AttachedToParentオプションを使用して、既存のTask.Run（）メソッド内にタスクを作成します。
 
-Answer:B
-Explanation:
+---
+
+**Answer: B**
+
+**Explanation:**
 
 **Taskクラス**
 
@@ -367,7 +398,14 @@ Opction.C と同じ。
 You are developing an application that includes a class named UserTracker. 
 The application includes the following code segment. (Line numbers are included for reference only.)
 
+You need to add a user to the UserTracker instance.
+What should you do?
 ---
 
 UserTrackerという名前のクラスを含むアプリケーションを開発しています。 
 アプリケーションには、次のコードセグメントが含まれています。 （行番号は参照のみ。）
+
+UserTrackerインスタンスにユーザーを追加する必要があります。
+あなたは何をするべきか？
+
+**Answer**
