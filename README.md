@@ -221,7 +221,7 @@ D. AttachedToParentオプションを使用して、既存のTask.Run（）メ�
 Answer:B
 Explanation:
 
-*Task クラス*
+**Taskクラス**
 - 値を返さない
 - 非同期に実行する操作
 - メインアプリケーションスレッドで同期的に実行されるのではなく、スレッドプールの中で非同期的に実行される。
@@ -234,25 +234,53 @@ Explanation:
 
 ※ Question1_3.cs を参照のこと
 
-Optiopn.A
-
+- Optiopn.A
 `TaskCompletionSouce<TResult>.TrySetException()`
-
 [TaskCompletionSource<TResult>.TrySetException メソッド](https://docs.microsoft.com/ja-jp/dotnet/api/system.threading.tasks.taskcompletionsource-1.trysetexception?view=netframework-4.8)
 
-Option.B
-
+- Option.B
 `Task.ContinureWith()`
-
 ターゲットの `Task` が完了したときに非同期に実行する継続タスクを作成する
-
 [Task.ContinueWith メソッド](https://docs.microsoft.com/ja-jp/dotnet/api/system.threading.tasks.task.continuewith?view=netframework-4.8)
 
-Option.C
+- Option.C
 上記、Task クラスを参照。
 
-Option.D
-
+- Option.D
 [アタッチされた子タスクとデタッチされた子タスク](https://docs.microsoft.com/ja-jp/dotnet/standard/parallel-programming/attached-and-detached-child-tasks)
 
 # Question.1-4
+
+You are modifying an application that processes leases. 
+The following code defines the Lease class. 
+(Line numbers are included for reference only.)
+
+You need to implement the notification mechanism.
+Which two actions should you perform? 
+(Each correct answer presents part of the solution. Choose two.)
+
+--
+
+リースを処理するアプリケーションを変更しています。
+次のコードは、Leaseクラスを定義しています。
+（行番号は参照用にのみ含まれています。）
+
+通知メカニズムを実装する必要があります。
+実行すべき2つのアクションはどれですか？ 
+（各正解はソリューションの一部を示します。2つ選択してください。）
+
+※ Question1_4.cs を参照すること。
+
+Answer: A, B
+Explanation:
+
+`value`
+
+- コンテクストキーワード `value` は、`set` アクセサーの propaty と indexer の宣言で利用される。
+- メソッドの入力パラメータ~のような振る舞いをする。
+
+`event`
+
+- パブリッシャークラス内にイベントを宣言する。
+
+

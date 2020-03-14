@@ -34,7 +34,7 @@ namespace MS_70_483
             #endregion
 
             #region q.6
-            Console.WriteLine("Q6");
+            // Console.WriteLine("Q6");
             #endregion
 
             #region q.1-1
@@ -42,10 +42,15 @@ namespace MS_70_483
                         Caluculate(3_000.5F);*/
             #endregion
 
-            #region
-            Console.WriteLine("Q1-3");
+            #region q.1-3
+            // Console.WriteLine("Q1-3");
             // Question1_3.TaskTraining();
             // Question1_3.RunTraining();
+            #endregion
+
+            #region q.1-4
+            Console.WriteLine("q.1-4");
+            Question1_4.publisher.
             #endregion
 
         }
