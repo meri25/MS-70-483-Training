@@ -87,21 +87,21 @@ A developer designs an interface that contains the following code:
 
 原文
 | Statement                                                                       | Yes | No |
-|---------------------------------------------------------------------------------|-----|----|
+|-------------------------------------------------------------------------------------------------------------------------|-------|------|
 | If you call Method1 from an instance of Class 2, an exception will be thrown.   |     |    |
 | If you cast an instance of Class1 in INewInstance, an exception will be thrown. |     |    |
 | Class2 uses an implicit implementation of INewInstance.                         |     |    |
 
 日本語約訳
 | ステートメント| はい     | いいえ |
-| ---------------------------------------------------------------------------------------------- | -------- | ------ |
+| --------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------- |
 | クラス 2 のインスタンスから Method1 を呼び出すと、例外がスローされます。　　　　　　　　　　　 | 　　　　 | 　　　 |
 | INewInstance で Class1 のインスタンスをキャストすると、例外がスローされます。 　　　　　　　   | 　　　　 | 　　　 |
 | Class2 は、INewInstance の暗黙的な実装を使用します。 　　　　　　　　　　　　　　　　　　　    | 　　　　 | 　　　 |
 
 Answer:
 | Statement                                                                       | Yes | No |
-|---------------------------------------------------------------------------------|-----|----|
+|-------------------------------------------------------------------------------------------------------------------------|-------|------|
 | If you call Method1 from an instance of Class 2, an exception will be thrown.   |  X  |    |
 | If you cast an instance of Class1 in INewInstance, an exception will be thrown. |     | X  |
 | Class2 uses an implicit implementation of INewInstance.                         |     | X  |
@@ -143,7 +143,9 @@ Option.C
 You are creating a console application by using C#.
 You need to access the application assembly.
 Which code segment should you use?
---
+
+---
+
 C＃を使用してコンソールアプリケーションを作成しています。
 アプリケーションアセンブリにアクセスする必要があります。
 どのコードセグメントを使用する必要がありますか？
@@ -205,7 +207,7 @@ B. Create a task by calling the Task.ContinueWith() method.
 C. Examine the Task.Status property immediately after the call to the Task.Run() method.
 D. Create a task inside the existing Task.Run() method by using the AttachedToParent option.
 
---
+---
 
 Task.Run（）メソッドを使用して、長時間実行されるデータ処理操作を起動します。 
 データ処理操作は、ネットワークが重いときに失敗することがよくあります。混雑。
@@ -259,7 +261,7 @@ You need to implement the notification mechanism.
 Which two actions should you perform? 
 (Each correct answer presents part of the solution. Choose two.)
 
---
+---
 
 リースを処理するアプリケーションを変更しています。
 次のコードは、Leaseクラスを定義しています。
@@ -283,4 +285,13 @@ Explanation:
 
 - パブリッシャークラス内にイベントを宣言する。
 
+# Question.1-5
+You are developing an application that uses structured exception handling.
+The application includes a class named ExceptionLogger.
+The ExceptionLogger class implements a method named LogException by using the following code segment:
 
+---
+
+構造化例外処理を使用するアプリケーションを開発しています。 
+アプリケーションには、ExceptionLoggerという名前のクラスが含まれています。
+ExceptionLoggerクラスは、次のコードセグメントを使用してLogExceptionというメソッドを実装します。
