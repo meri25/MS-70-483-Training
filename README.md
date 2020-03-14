@@ -149,37 +149,51 @@ C＃を使用してコンソールアプリケーションを作成していま�
 どのコードセグメントを使用する必要がありますか？
 
 Option.A
+
 `Assembly.GetAssembly(this);`
 
 Option.B
+
 `this.GetType();`
 
 Option.C
+
 `Assembly.Load();`
 
 Option.D
+
 `Assembly.GetExecutingAssembly();`
 
 Answer:A
 Exception:
+
 [Assembly クラス](https://docs.microsoft.com/ja-jp/dotnet/api/system.reflection.assembly?view=netframework-4.8)
 Option.A
+
 `Assembly.GetAssembly();`
+
 指定した型が定義されている、現在読み込み済みのアセンブリを取得する。
 
 Option.B
+
 `this.GetType();`
+
 指定された型を表す Type オブジェクトを取得する。
 
 Option.C
+
 `Assembly.Load();`
+
 アセンブリを読み込む。
 
 Option.D
+
 `Assembly.GetExecutingAssembly();`
+
 現在実行中のコードを格納しているアセンブリを取得する。
 
 # Qustion.1-3
+
 You use the Task.Run() method to launch a long-running data processing operation. 
 The data processing operation often fails in times of heavy network congestion.
 If the data processing operation fails, a second operation must clean up any results of the first operation.
@@ -190,7 +204,9 @@ A. Create a TaskCompletionSource<T> object and call the TrySetException() method
 B. Create a task by calling the Task.ContinueWith() method.
 C. Examine the Task.Status property immediately after the call to the Task.Run() method.
 D. Create a task inside the existing Task.Run() method by using the AttachedToParent option.
+
 --
+
 Task.Run（）メソッドを使用して、長時間実行されるデータ処理操作を起動します。 
 データ処理操作は、ネットワークが重いときに失敗することがよくあります。混雑。
 データ処理操作が失敗した場合、2番目の操作で最初の操作の結果をクリーンアップする必要があります。
@@ -219,17 +235,24 @@ Explanation:
 ※ Question1_3.cs を参照のこと
 
 Optiopn.A
+
 `TaskCompletionSouce<TResult>.TrySetException()`
+
 [TaskCompletionSource<TResult>.TrySetException メソッド](https://docs.microsoft.com/ja-jp/dotnet/api/system.threading.tasks.taskcompletionsource-1.trysetexception?view=netframework-4.8)
 
 Option.B
+
 `Task.ContinureWith()`
+
 ターゲットの `Task` が完了したときに非同期に実行する継続タスクを作成する
+
 [Task.ContinueWith メソッド](https://docs.microsoft.com/ja-jp/dotnet/api/system.threading.tasks.task.continuewith?view=netframework-4.8)
 
 Option.C
 上記、Task クラスを参照。
 
 Option.D
+
 [アタッチされた子タスクとデタッチされた子タスク](https://docs.microsoft.com/ja-jp/dotnet/standard/parallel-programming/attached-and-detached-child-tasks)
 
+# Question.1-4
