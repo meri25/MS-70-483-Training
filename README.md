@@ -498,13 +498,13 @@ The code region that updates the score field must meet the following requirement
 You need to implement the UpdateScore() method.
 What should you do?
 
-**A. ** Place the code region inside the following lock statement:
+**A.** Place the code region inside the following lock statement:
 
-**B. ** Add a private object named `lockObject` to the `ScoreCard` class. Place the code region inside the following lock statement:
+**B.** Add a private object named `lockObject` to the `ScoreCard` class. Place the code region inside the following lock statement:
 
-**C. ** Apply the following attributbe to the `UpdateScore()` method signature:
+**C.** Apply the following attributbe to the `UpdateScore()` method signature:
 
-**D. ** Add a public static object named `lockObject` to the `Scored` class. Place the code Region inside the following lock statement: 
+**D.** Add a public static object named `lockObject` to the `Scored` class. Place the code Region inside the following lock statement: 
 ---
 
 UpdateScoreという名前のパブリックメソッドをScoreCardという名前のパブリッククラスに追加しています。
@@ -514,7 +514,7 @@ UpdateScoreという名前のパブリックメソッドをScoreCardという名
 UpdateScore（）メソッドを実装する必要があります。
 あなたは何をするべきか？
 
-**A. ** 次のロックステートメント内にコード領域を配置します。
+**A.** 次のロックステートメント内にコード領域を配置します。
 
 ```c#
 lock (this)
@@ -523,7 +523,7 @@ lock (this)
 }
 ```
 
-**B. ** `lockObject`という名前のプライベートオブジェクトを` ScoreCard`クラスに追加します。 コード領域を次のロックステートメント内に配置します。
+**B.** `lockObject`という名前のプライベートオブジェクトを` ScoreCard`クラスに追加します。 コード領域を次のロックステートメント内に配置します。
 
 ```c#
 lock (lockObject)
@@ -532,13 +532,13 @@ lock (lockObject)
 }
 ```
 
-**C. ** 次の属性を `UpdateScore()` メソッドシグネチャに適用します。
+**C.** 次の属性を `UpdateScore()` メソッドシグネチャに適用します。
 
 ```c#
 [MethodImp(MethodlOptions.Synchronized)]
 ```
 
-**D. **  `lockObject`という名前のパブリック静的オブジェクトを` Scored`クラスに追加します。 次のロックステートメント内にコードRegionを配置します。
+**D.**  `lockObject`という名前のパブリック静的オブジェクトを` Scored`クラスに追加します。 次のロックステートメント内にコードRegionを配置します。
 
 ```c#
 lock (typeof(ScoreCard))
@@ -549,7 +549,7 @@ lock (typeof(ScoreCard))
 
 ---
 
-**Answer: **
+**Answer:**
 
-**Exception: **
+**Exception:**
 
