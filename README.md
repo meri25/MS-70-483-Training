@@ -408,4 +408,83 @@ UserTrackerという名前のクラスを含むアプリケーションを開発
 UserTrackerインスタンスにユーザーを追加する必要があります。
 あなたは何をするべきか？
 
-**Answer**
+---
+
+**Answer: D**
+
+**Explanation:**
+
+**Option.A**
+
+- 文法エラー
+
+`現在のコンテキストに...は存在しません。`
+
+**Option.B**
+
+- 文法エラーはない
+
+**Option.C**
+
+- 文法エラーはない
+
+**Option.D**
+
+**Delegate クラス**
+
+- デリゲートとは静的メソッドを参照するデータ構造、またはクラスのインスタンスメソッドを参照するデータ構造
+
+[Delegate クラス](https://docs.microsoft.com/ja-jp/dotnet/api/system.delegate?view=netframework-4.8)
+
+**String クラス**
+
+- テキストを一連の UFT-16 コード単位として表現する
+
+**String と string の違い**
+
+- `string`　は予約語として定義されている識別子であり、`System.String` の別名である。
+- コンパイルすれば、`String` も `string` も同じものになる。
+- エイリアスを予約語に定義しているものの例
+	- `bool`:`System.Boolean`
+	- `int`:`System.Int32`
+- 使い分けるとき
+	- `String`:String クラスのメソッドを呼び出す場合
+	- `string`:字列の変数を定義する場合
+
+**入れ子にされた型**
+
+[入れ子にされた型 (C# プログラミング ガイド)](https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/classes-and-structs/nested-types)
+
+`c#
+public class Container
+{
+	class Nested
+	{
+		Nested() { }
+	}
+}
+`
+
+- 外側のクラス、構造体、入れ子にされた方のいずれであっても、入れ子にされた型は規定で `private` になり、それが含まれる型からのみアクセス可能となる。
+	- 前の例では、`Nested` クラスは外部の型にアクセスできない。
+- 外側の型がクラスの場合、入れ子にされた型は...	`public`、`protected`、`internal`、`protected internal`、`private`、`private protected`になれる
+- 外側の型が構造体の場合、入れ子にされた型は...`public`、`internal`、`private`になれる
+- 入れ子にされた型は、外側の型にアクセスできる。
+	- アクセスするには、その型を引数として入れ子の型のコンストラクターに渡す。
+
+`C#
+public class Container
+{
+	public Class Nested
+	{
+		private Container parent;
+		public Nested()
+		{
+		}
+		public Nested(Container parent)
+		{
+			this.parent = parent;
+		}
+	}
+}
+`

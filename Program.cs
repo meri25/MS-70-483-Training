@@ -53,11 +53,14 @@ namespace MS_70_483
             #endregion
 
             #region q.1-5
-            Console.WriteLine("q.1-5");
-            Question1_5.ExceptionTraining();
+            // Console.WriteLine("q.1-5");
+            // Question1_5.ExceptionTraining();
             #endregion
 
-
+            #region q.1-6
+            Console.WriteLine("Q.1-6");
+            SampleDelegate.SampleDelegateMain();
+            #endregion
         }
 
         private static List<string> TestIfWebSite(string url)
