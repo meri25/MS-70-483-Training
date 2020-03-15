@@ -505,6 +505,7 @@ What should you do?
 **C.** Apply the following attributbe to the `UpdateScore()` method signature:
 
 **D.** Add a public static object named `lockObject` to the `Scored` class. Place the code Region inside the following lock statement: 
+
 ---
 
 UpdateScoreという名前のパブリックメソッドをScoreCardという名前のパブリッククラスに追加しています。
@@ -538,7 +539,7 @@ lock (lockObject)
 [MethodImp(MethodlOptions.Synchronized)]
 ```
 
-**D.**  `lockObject`という名前のパブリック静的オブジェクトを` Scored`クラスに追加します。 次のロックステートメント内にコードRegionを配置します。
+**D.** `lockObject`という名前のパブリック静的オブジェクトを` Scored`クラスに追加します。 次のロックステートメント内にコードRegionを配置します。
 
 ```c#
 lock (typeof(ScoreCard))
