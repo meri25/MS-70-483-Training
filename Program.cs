@@ -58,8 +58,13 @@ namespace MS_70_483
             #endregion
 
             #region q.1-6
-            Console.WriteLine("Q.1-6");
-            SampleDelegate.SampleDelegateMain();
+            // Console.WriteLine("Q.1-6");
+            // SampleDelegate.SampleDelegateMain();
+            #endregion
+
+            #region q.1-7
+            Console.WriteLine("Q.1-7");
+
             #endregion
         }
 

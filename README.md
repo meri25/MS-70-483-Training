@@ -455,7 +455,7 @@ UserTrackerインスタンスにユーザーを追加する必要があります
 
 [入れ子にされた型 (C# プログラミング ガイド)](https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/classes-and-structs/nested-types)
 
-`c#
+```c#
 public class Container
 {
 	class Nested
@@ -463,7 +463,7 @@ public class Container
 		Nested() { }
 	}
 }
-`
+```_
 
 - 外側のクラス、構造体、入れ子にされた方のいずれであっても、入れ子にされた型は規定で `private` になり、それが含まれる型からのみアクセス可能となる。
 	- 前の例では、`Nested` クラスは外部の型にアクセスできない。
@@ -472,7 +472,7 @@ public class Container
 - 入れ子にされた型は、外側の型にアクセスできる。
 	- アクセスするには、その型を引数として入れ子の型のコンストラクターに渡す。
 
-`C#
+```c#
 public class Container
 {
 	public Class Nested
@@ -487,4 +487,69 @@ public class Container
 		}
 	}
 }
-`
+```
+
+# Question.1-7
+
+You are adding a public method named UpdateScore to a public class named ScoreCard.
+The code region that updates the score field must meet the following requirements:
+- It must be accessed by only one thread at a time.
+- It must not be vulnerable to a deadlock situation.
+You need to implement the UpdateScore() method.
+What should you do?
+
+**A. ** Place the code region inside the following lock statement:
+
+**B. ** Add a private object named `lockObject` to the `ScoreCard` class. Place the code region inside the following lock statement:
+
+**C. ** Apply the following attributbe to the `UpdateScore()` method signature:
+
+**D. ** Add a public static object named `lockObject` to the `Scored` class. Place the code Region inside the following lock statement: 
+---
+
+UpdateScoreという名前のパブリックメソッドをScoreCardという名前のパブリッククラスに追加しています。
+スコアフィールドを更新するコード領域は、次の要件を満たしている必要があります。
+- 一度に1つのスレッドのみがアクセスする必要があります。
+- デッドロック状態に対して脆弱であってはなりません。
+UpdateScore（）メソッドを実装する必要があります。
+あなたは何をするべきか？
+
+**A. ** 次のロックステートメント内にコード領域を配置します。
+
+```c#
+lock (this)
+{
+	...
+}
+```
+
+**B. ** `lockObject`という名前のプライベートオブジェクトを` ScoreCard`クラスに追加します。 コード領域を次のロックステートメント内に配置します。
+
+```c#
+lock (lockObject)
+{
+	...
+}
+```
+
+**C. ** 次の属性を `UpdateScore()` メソッドシグネチャに適用します。
+
+```c#
+[MethodImp(MethodlOptions.Synchronized)]
+```
+
+**D. **  `lockObject`という名前のパブリック静的オブジェクトを` Scored`クラスに追加します。 次のロックステートメント内にコードRegionを配置します。
+
+```c#
+lock (typeof(ScoreCard))
+{
+	...
+}
+```
+
+---
+
+**Answer: **
+
+**Exception: **
+
