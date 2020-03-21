@@ -648,3 +648,53 @@ Regexオブジェクトが最初にインスタンス化されるときに、式
 **Regex クラス**
 
 - 変更不可の正規表現を表す。
+
+# Question.1-9
+
+You are developing an application by using C#.
+You have the following requirements:
+Support 32-bit and 64-bit system configurations.
+Include pre-processor directives that are specific to the system configuration.
+Deploy an application version that includes both system configurations to testers.
+Ensure that stack traces include accurate line numbers.
+You need to configure the project to avoid changing individual configuration settings every time you deploy the application to testers.
+Which two actions should you perform? (Each correct answer presents part of the solution. Choose two.)
+
+A. Update the platform target and conditional compilation symbols for each application configuration.
+B. Create two application configurations based on the default Release configuration.
+C. Optimize the application through address rebasing in the 64-bit configuration.
+D. Create two application configurations based on the default Debug configuration.
+
+---
+
+**Answer: B,D**
+
+# Question.1-10 [will]
+
+You are developing a method named CreateCounters that will create performance counters for an application.
+The method includes the following code. (Line numbers are included for reference only.)
+You need to ensure that Counter1 is available for use in Windows Performance Monitor (PerfMon).
+Which code segment should you insert at line 16?
+
+---
+
+アプリケーションのパフォーマンスカウンターを作成するCreateCountersという名前のメソッドを開発しています。
+このメソッドには次のコードが含まれます。 （行番号は参照用にのみ含まれています。）
+Counter1をWindowsパフォーマンスモニター（PerfMon）で使用できるようにする必要があります。
+16行目に挿入するコードセグメントはどれですか？
+
+A. CounterType = PerformanccCounterType.RawBase
+B. CounterType = PerformanceCounterType.AverageBase
+C. CounterType = PerformanceCounterType.SampleBase
+D. CounterType = PerformanceCounterType.CounterMultiBase
+
+---
+
+**Answer: C**
+
+**Explanation:**
+
+**PerformanceCounterCategory クラス**
+
+- パフォーマンスカウンターのカテゴリを定義するパフォーマンスオブジェクトを表す。
+

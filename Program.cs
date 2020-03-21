@@ -4,6 +4,7 @@ using System.Collections;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Reflection;
+using System.Diagnostics;
 
 namespace MS_70_483
 {
@@ -179,6 +180,15 @@ namespace MS_70_483
             return evaluator.IsMatch(inputData);
 
         }
+        #endregion
+
+        #region q.1-10
+
+        public void CreateCounters()
+        {
+            if(!PerformanceCounterCategory.Exists("Contoso"))                )
+        }
+
         #endregion
     }
 }
