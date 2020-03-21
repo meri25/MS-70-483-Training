@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Reflection;
 
 namespace MS_70_483
 {
@@ -150,6 +151,33 @@ namespace MS_70_483
             int balance = (int)amountRef;
 
             Console.WriteLine(balance);
+        }
+        #endregion
+
+        #region q.1-8
+        bool ConstainsHyperLink(string inputData)
+        {
+            string regExPattern = "href\\s*=\\s*(?:\"(?<1>[^\"]*)\"|(?<1>\\S+))";
+
+            // Option.A
+            var evaluator = new Regex(regExPattern, RegexOptions.CultureInvariant);
+
+            // Option.B
+            // var evaluator = new Regex(inputData);
+
+            // Option.C
+            /*
+                var assemblyName = "Vlidation";
+                var compilationInfo = new RegexCompilationInfo(inputData, RegexOptions.IgnoreCase, "Href", assemblyName, true);
+                Regex.CompileToAssembly(new[] { compilationInfo }, new AssemblyName(assemblyName));
+                var evaluator = new Regex(regExPattern, RegexOptions.CultureInvariant); 
+            */
+
+            // Option.D
+            // var evaluator = new Regex(regExPattern, RegexOptions.Compiled);
+
+            return evaluator.IsMatch(inputData);
+
         }
         #endregion
     }

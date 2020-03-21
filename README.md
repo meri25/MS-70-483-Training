@@ -589,3 +589,60 @@ lock (x)
 **D.** 
 
 - `typeof` 演算子またはリフレクションによって取得される可能性があるため。
+
+# Question.1-8
+
+You are developing a C# application that has a requirement to validate some string input data by using the Regex class.
+https://www.gratisexam.com/
+The application includes a method named ContainsHyperlink. 
+The ContainsHyperlink() method will verify the presence of a URI and surrounding markup.
+The following code segment defines the ContainsHyperlink() method. 
+(Line numbers are included for reference only.)
+
+The expression patterns used for each validation function are constant.
+You need to ensure that the expression syntax is evaluated only once when the Regex object is initially instantiated.
+Which code segment should you insert at line 04?
+
+---
+
+Regexクラスを使用して一部の文字列入力データを検証する必要があるC＃アプリケーションを開発しています。
+https://www.gratisexam.com/
+アプリケーションには、ContainsHyperlinkという名前のメソッドが含まれています。
+ContainsHyperlink（）メソッドは、URIと周囲のマークアップの存在を検証します。
+次のコードセグメントは、ContainsHyperlink（）メソッドを定義しています。
+（行番号は参照用にのみ含まれています。）
+
+各検証関数に使用される式パターンは一定です。
+Regexオブジェクトが最初にインスタンス化されるときに、式の構文が1回だけ評価されるようにする必要があります。
+行04にどのコードセグメントを挿入する必要がありますか？
+
+---
+
+**Answer: D**
+
+**Explanation:**
+
+**Option.A**
+
+**RegrexOptions 列挙型**
+
+- 正規表現オプションを設置絵するために使用する列挙値を提供する。
+
+- `RegrexOptions.CultureInvariant`: 言語の違いが無視されるよう指定する。
+
+**Option.B**
+
+- `Regex(String)`: 指定した正規表現の `Regex` クラスの新しいインスタンスを初期化する。
+
+**Option.C**
+
+よくわからない。長すぎ。
+
+**Option.D**
+
+- `RegexOptions.Compuled` : 正規表現をコンパイルしてアセンブリを作成することを指定する。
+これにより実行速度は速くなるが、起動にかかる時間は長くなる。
+
+**Regex クラス**
+
+- 変更不可の正規表現を表す。
