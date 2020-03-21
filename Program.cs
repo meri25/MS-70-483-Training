@@ -167,7 +167,7 @@ namespace MS_70_483
 
             // Option.C
             /*
-                var assemblyName = "Vlidation";
+                var assemblyName = "Validation";
                 var compilationInfo = new RegexCompilationInfo(inputData, RegexOptions.IgnoreCase, "Href", assemblyName, true);
                 Regex.CompileToAssembly(new[] { compilationInfo }, new AssemblyName(assemblyName));
                 var evaluator = new Regex(regExPattern, RegexOptions.CultureInvariant); 
