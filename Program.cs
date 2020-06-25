@@ -18,7 +18,7 @@ namespace MS_70_483
             #endregion
 
             #region q.2
-            // Console.WriteLine("--Q2--");
+            Console.WriteLine("--Q2--");
             // OutputLogDebugOrReleaseMode();
             #endregion
 
@@ -186,7 +186,7 @@ namespace MS_70_483
 
         public void CreateCounters()
         {
-            if(!PerformanceCounterCategory.Exists("Contoso"))                )
+           // if(!PerformanceCounterCategory.Exists("Contoso"))                )
         }
 
         #endregion
