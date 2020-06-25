@@ -153,10 +153,11 @@ Which code segment should you insert at line 04?
 
 ---
 
-**Answer:**
+**Answer: A** 
+
 **Explanation:**
 
-**Option.A**
+**Option.A** 
 
 **Option.B**
 
@@ -719,3 +720,36 @@ D. Aes
 
 **Answer: A**
 
+# Question.1-12
+
+You are developing an assembly that will be used by multiple applications.
+You need to install the assembly in the Global Assembly Cache (GAC).
+Which two actions can you perform to achieve this goal? (Each correct answer presents a complete solution. Choose two.)
+
+A. Use the Assembly Registration tool (regasm.exe) to register the assembly and to copy the assembly to the GAC.
+B. Use the Strong Name tool (sn.exe) to copy the assembly into the GAC.
+C. Use Microsoft Register Server (regsvr32.exe) to add the assembly to the GAC.
+D. Use the Global Assembly Cache tool (gacutil.exe) to add the assembly to the GAC.
+E. Use Windows Installer 2.0 to add the assembly to the GAC
+
+---
+
+複数のアプリケーションで使用されるアセンブリを開発しています。
+グローバルアセンブリキャッシュ（GAC）にアセンブリをインストールする必要があります。
+この目標を達成するために実行できる2つのアクションはどれですか？ （各正解は完全なソリューションを示します。2つ選択してください。）
+
+A. アセンブリ登録ツール（regasm.exe）を使用して、アセンブリを登録し、アセンブリをGACにコピーします。
+B. 厳密名ツール（sn.exe）を使用して、アセンブリをGACにコピーします。
+C. Microsoft Register Server（regsvr32.exe）を使用して、アセンブリをGACに追加します。
+D. グローバルアセンブリキャッシュツール（gacutil.exe）を使用して、アセンブリをGACに追加します。
+E. Windows Installer 2.0を使用して、アセンブリをGACに追加します
+
+--- 
+
+**Answer: **
+
+**Explanation: **
+
+**グローバルアセンブリキャッシュ**
+
+- コンピューター上の複数のアプリケーションで共有するように特別に指定されたアセンブリを格納する
