@@ -24,7 +24,7 @@ Which code should you use?
 ## Options
 A
 
-```
+```C#
 #define DEBUG
 	Cosole.WriteLine("Entering debug mode");
 #define RELEASE
@@ -33,7 +33,7 @@ A
 
 B
 
-```
+```C#
 #if (DEBUG)
 	Cosole.WriteLine("Entering debug mode");
 # else
@@ -43,7 +43,7 @@ B
 
 C
 
-```
+```C#
 #region DEBUG
 	Cosole.WriteLine("Entering debug mode");
 #endregion
@@ -54,7 +54,7 @@ C
 
 D
 
-```
+```C#
 if(System.Reflection.Assembly.GetExecutingAssembly().IsDefined
 	(typeof(System.Diagnostics.Debugger), false))
 	Cosole.WriteLine("Entering debug mode");
