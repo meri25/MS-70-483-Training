@@ -119,6 +119,83 @@ Windowsソフトウェア開発キット（SDK）には、
 C ++の/ DELAYSIGNリンカーオプション。 （遅延署名の詳細については、「アセンブリへの遅延署名」を参照してください。）
 ```
 
+# No.3
+
+## Statement
+
+You are implementing a method named Calculate that performs conversions between value types and reference types. 
+The following code segment implements the
+method. (Line numbers are included for reference only.)
+
+```C#
+public static void Calculate(float amoumt)
+{
+	object amountRef = amount;
+	// Line 04
+	Counsole.WriteLine(balance);
+}
+```
+
+You need to ensure that the application does not throw exceptions on invalid conversions.
+Which code segment should you insert at line 04?
+
+```
+値型と参照型の間の変換を実行するCalculateという名前のメソッドを実装しています。
+次のコードセグメントは、
+方法。 （行番号は参照用にのみ含まれています。）
+
+アプリケーションが無効な変換で例外をスローしないようにする必要があります。
+04行目に挿入する必要があるコードセグメントはどれですか。
+```
+
+## Options
+
+A
+
+```c#
+int balance = (int) (float)amountRef;
+```
+
+B
+
+```c#
+int balance = (int)amountRef;
+```
+
+C
+
+```c#
+int balance = amountRef;
+```
+
+D
+```
+int balance = (int) (double) amountRef;
+```
+
+## Answer
+**Answer: A** 
+
+**B**
+
+System.InvalidCastException: 'Unable to cast object of type 'System.Single' to type 'System.Int32'.'
+System.Single（float）のオブジェクトを System.Int32 (int)にキャストできないエラーが発生する。
+
+**C**
+
+コンパイルエラー
+
+**D**
+
+InvalidCastException が発生する。object 型から int 型のへの変換はできないっぽい。
+InvalidCastException は、無効なキャストまたは明示的な変換が発生したときにスローされる例外。
+
+```Console
+System.InvalidCastException
+  HResult=0x80004002
+  Message=Unable to cast object of type 'System.Single' to type 'System.Double'.
+```
+
 
 ## Question.1
 
@@ -259,29 +336,7 @@ Which code should you insert at line 16? Develop the solution by selecting and a
 You may not need all of the code blocks.
 
 
-# Question.1-1
 
-You are implementing a method named Calculate that performs conversions between value types and reference types. 
-The following code segment implements the
-method. (Line numbers are included for reference only.)
-
-You need to ensure that the application does not throw exceptions on invalid conversions.
-Which code segment should you insert at line 04?
-
----
-
-**Answer: A** 
-
-**Explanation:**
-
-**Option.A** 
-
-**Option.B**
-
-System.InvalidCastException: 'Unable to cast object of type 'System.Single' to type 'System.Int32'.'
-System.Single（float）のオブジェクトを System.Int32 (int)にキャストできないエラーが発生する。
-
-**Option.C** 
 
 # Question.1-2
 You are creating a console application by using C#.

@@ -13,8 +13,11 @@ namespace MS._70483.App
             switch (question.number)
             {
                 case 1:
-                    Q1 q = new Q1();
-                    return q.Start(question);
+                    Q1 q1 = new Q1();
+                    return q1.Start(question);
+                case 3:
+                    Q3 q3 = new Q3();
+                    return q3.Start(question);
                 default:
                     return this.question;
             }
