@@ -69,6 +69,57 @@ else
 '#define ディレクティブは、ファイルの先頭で指定する必要があります。
 [#define (C# リファレンス)](https://docs.microsoft.com/ja-jp/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-define)
 
+# No.2
+
+## Statement
+You are creating a class library that will be used in a web application.
+You need to ensure that the class library assembly is strongly named.
+What should you do?
+
+```
+Webアプリケーションで使用されるクラスライブラリを作成しています。
+クラスライブラリアセンブリの名前が厳密であることを確認する必要があります。
+あなたは何をするべきか？
+```
+
+## Options
+A. Use the gacutil.exe command-line tool.
+B. Use assembly attributes.
+C. Use the aspnet_regiis.exe command-line tool.
+D. Use the xsd.exe command-line tool.
+
+```
+A. gacutil.exeコマンドラインツールを使用します。
+B.アセンブリ属性を使用します。
+C. aspnet_regiis.exeコマンドラインツールを使用します。
+D. xsd.exeコマンドラインツールを使用します。
+```
+
+## Answer
+
+**Answer: B**
+
+The Windows Software Development Kit (SDK) provides several ways to sign an assembly with a
+strong name:
+* Using the Assembly Linker (Al.exe) provided by the Windows SDK.
+* Using assembly attributes to insert the strong name information in your code. You can use either
+the AssemblyKeyFileAttribute or the AssemblyKeyNameAttribute, depending on where the key file to
+be used is located.
+* Using compiler options such /keyfile or /delaysign in C# and Visual Basic, or the /KEYFILE or
+/DELAYSIGN linker option in C++. (For information on delay signing, see Delay Signing an Assembly.)
+
+```
+Windowsソフトウェア開発キット（SDK）には、
+厳密な名前：
+* Windows SDKが提供するアセンブリリンカー（Al.exe）を使用します。
+*アセンブリ属性を使用して、厳密な名前の情報をコードに挿入します。 どちらでも使えます
+キーファイルの保存先に応じて、AssemblyKeyFileAttributeまたはAssemblyKeyNameAttribute
+使用する場所にあります。
+* C＃およびVisual Basicで/ keyfileまたは/ delaysignなどのコンパイラオプションを使用するか、/ KEYFILEまたは
+C ++の/ DELAYSIGNリンカーオプション。 （遅延署名の詳細については、「アセンブリへの遅延署名」を参照してください。）
+```
+
+
 ## Question.1
 
 You write the following method (line numbers are included for reference only):
