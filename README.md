@@ -3,6 +3,59 @@
 お世話になっているサイト
 https://www.itshiken.jp/70-483-shiken.html
 
+# No.1
+---
+
+## Statement
+You need to write a console application that meets the following requirements:
+If the application is compiled in Debug mode, the console output must display Entering debug mode.
+If the application is compiled in Release mode, the console output must display Entering release
+mode.
+Which code should you use?
+
+## Options
+A
+
+```
+#define DEBUG
+	Cosole.WriteLine("Entering debug mode");
+#define RELEASE
+	Cosole.WriteLine("Entering release mode");
+```
+
+B
+
+```
+#if (DEBUG)
+	Cosole.WriteLine("Entering debug mode");
+# else
+	Cosole.WriteLine("Entering release mode");
+# endif
+```
+
+C
+
+```
+#region DEBUG
+	Cosole.WriteLine("Entering debug mode");
+#endregion
+#region RELEASE
+	Cosole.WriteLine("Entering release mode");
+#endregion
+```
+
+D
+
+```
+if(System.Reflection.Assembly.GetExecutingAssembly().IsDefined
+	(typeof(System.Diagnostics.Debugger), false))
+	Cosole.WriteLine("Entering debug mode");
+else
+	Console.WriteLine("Entering release mode")
+```
+
+
+
 ## Question.1
 
 You write the following method (line numbers are included for reference only):
