@@ -55,7 +55,7 @@ else
 ```
 ## Answer
 
-B
+**Answer: B**
 
 **A**
 
