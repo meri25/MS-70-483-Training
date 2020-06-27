@@ -58,6 +58,7 @@ else
 B
 
 **A**
+
 '#define ディレクティブは、ファイルの先頭で指定する必要があります。
 [#define (C# リファレンス)](https://docs.microsoft.com/ja-jp/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-define)
 
