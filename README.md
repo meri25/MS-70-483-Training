@@ -4,7 +4,6 @@
 https://www.itshiken.jp/70-483-shiken.html
 
 # No.1
----
 
 ## Statement
 You need to write a console application that meets the following requirements:
