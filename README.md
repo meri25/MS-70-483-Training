@@ -13,6 +13,14 @@ If the application is compiled in Release mode, the console output must display 
 mode.
 Which code should you use?
 
+```
+次の要件を満たすコンソールアプリケーションを作成する必要があります。
+アプリケーションがデバッグモードでコンパイルされている場合、コンソール出力にはEntering debug modeと表示される必要があります。
+アプリケーションがリリースモードでコンパイルされている場合、コンソール出力にはEntering releaseと表示される必要があります
+モード。
+どのコードを使用する必要がありますか？
+```
+
 ## Options
 A
 
