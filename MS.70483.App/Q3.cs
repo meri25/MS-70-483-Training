@@ -7,6 +7,11 @@ namespace MS._70483.App
     class Q3 : Question
     {
         private Question question;
+
+        public Q3()
+        {
+            this.isSampleFlag = false;
+        }
         public Question Start(Question question)
         {
             this.question = question;

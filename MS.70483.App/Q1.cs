@@ -10,6 +10,11 @@ namespace MS._70483.App
     class Q1 : Question
     {
         private Question question;
+
+        public Q1()
+        {
+            this.isSampleFlag = false;
+        }
         public Question Start(Question question)
         {
             this.question = question;

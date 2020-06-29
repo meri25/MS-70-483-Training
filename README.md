@@ -240,7 +240,7 @@ Assembly.GetExecutingAssembly();
 
 [Assembly クラス](https://docs.microsoft.com/ja-jp/dotnet/api/system.reflection.assembly?view=netframework-4.8)
 
-**Option.A**
+A
 
 ```c#
 Assembly.GetAssembly();
@@ -251,7 +251,7 @@ Assembly.GetAssembly();
 [Assembly.GetAssembly(Type) メソッド](https://docs.microsoft.com/ja-jp/dotnet/api/system.reflection.assembly.getassembly?view=netcore-3.1)
 
 
-**Option.B**
+B
 
 ```c#
 this.GetType();
@@ -261,7 +261,7 @@ this.GetType();
 
 [Object.GetType メソッド](https://docs.microsoft.com/ja-jp/dotnet/api/system.object.gettype?view=netcore-3.1)
 
-**Option.C**
+C
 
 ```c#
 Assembly.Load();
@@ -272,7 +272,7 @@ Assembly.Load();
 [Assembly.Load メソッド](https://docs.microsoft.com/ja-jp/dotnet/api/system.reflection.assembly.load?view=netcore-3.1)
 
 
-**Option.D**
+D
 
 ```c#
 Assembly.GetExecutingAssembly();
@@ -281,6 +281,90 @@ Assembly.GetExecutingAssembly();
 現在実行中のコードを格納しているアセンブリを取得する。
 
 [Assembly.GetExecutingAssembly メソッド](https://docs.microsoft.com/ja-jp/dotnet/api/system.reflection.assembly.getexecutingassembly?view=netcore-3.1)
+
+# No.5
+
+## Statement
+
+You use the Task.Run() method to launch a long-running data processing operation. 
+The data processing operation often fails in times of heavy network congestion.
+If the data processing operation fails, a second operation must clean up any results of the first operation.
+You need to ensure that the second operation is invoked only if the data processing operation throws an unhandled exception.
+What should you do?
+
+**A.** Create a TaskCompletionSource<T> object and call the TrySetException() method of the object.
+
+**B.** Create a task by calling the Task.ContinueWith() method.
+
+**C.** Examine the Task.Status property immediately after the call to the Task.Run() method.
+
+**D.** Create a task inside the existing Task.Run() method by using the AttachedToParent option.
+
+
+```
+Task.Run（）メソッドを使用して、長時間実行されるデータ処理操作を起動します。 
+データ処理操作は、ネットワークが重いときに失敗することがよくあります。混雑。
+データ処理操作が失敗した場合、2番目の操作で最初の操作の結果をクリーンアップする必要があります。
+データ処理操作で未処理の例外がスローされた場合にのみ、2番目の操作が呼び出されるようにする必要があります。
+あなたは何をするべきか？
+
+A. TaskCompletionSource <T>オブジェクトを作成し、オブジェクトのTrySetException（）メソッドを呼び出します。
+B. Task.ContinueWith（）メソッドを呼び出してタスクを作成します。
+C. Task.Run（）メソッドを呼び出した直後にTask.Statusプロパティを調べます。
+D. AttachedToParentオプションを使用して、既存のTask.Run（）メソッド内にタスクを作成します。
+
+```
+## Answer
+
+**Answer: B**
+
+**Taskクラス**
+
+- 値を返さない
+- 非同期に実行する操作
+- メインアプリケーションスレッドで同期的に実行されるのではなく、スレッドプールの中で非同期的に実行される。
+- タスクの確認方は下記プロパティから可能。
+  - Status
+  - IsCanceled 
+  - IsCompleted
+  - Isfaulted
+- ラムダ式でタスクが実行する処理を指定する
+
+※ Question1_3.cs を参照のこと
+
+**Optiopn.A**
+
+`TaskCompletionSouce<TResult>.TrySetException()`
+[TaskCompletionSource<TResult>.TrySetException メソッド](https://docs.microsoft.com/ja-jp/dotnet/api/system.threading.tasks.taskcompletionsource-1.trysetexception?view=netframework-4.8)
+
+**Option.B**
+
+`Task.ContinureWith()`
+ターゲットの `Task` が完了したときに非同期に実行する継続タスクを作成する
+[Task.ContinueWith メソッド](https://docs.microsoft.com/ja-jp/dotnet/api/system.threading.tasks.task.continuewith?view=netframework-4.8)
+
+**Option.C**
+
+上記、Task クラスを参照。
+
+**Option.D**
+
+[アタッチされた子タスクとデタッチされた子タスク](https://docs.microsoft.com/ja-jp/dotnet/standard/parallel-programming/attached-and-detached-child-tasks)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Question.1
 
@@ -424,76 +508,6 @@ You may not need all of the code blocks.
 
 
 
-# Qustion.1-3
-
-You use the Task.Run() method to launch a long-running data processing operation. 
-The data processing operation often fails in times of heavy network congestion.
-If the data processing operation fails, a second operation must clean up any results of the first operation.
-You need to ensure that the second operation is invoked only if the data processing operation throws an unhandled exception.
-What should you do?
-
-**A.** Create a TaskCompletionSource<T> object and call the TrySetException() method of the object.
-
-**B.** Create a task by calling the Task.ContinueWith() method.
-
-**C.** Examine the Task.Status property immediately after the call to the Task.Run() method.
-
-**D.** Create a task inside the existing Task.Run() method by using the AttachedToParent option.
-
----
-
-Task.Run（）メソッドを使用して、長時間実行されるデータ処理操作を起動します。 
-データ処理操作は、ネットワークが重いときに失敗することがよくあります。混雑。
-データ処理操作が失敗した場合、2番目の操作で最初の操作の結果をクリーンアップする必要があります。
-データ処理操作で未処理の例外がスローされた場合にのみ、2番目の操作が呼び出されるようにする必要があります。
-あなたは何をするべきか？
-
-**A.** TaskCompletionSource <T>オブジェクトを作成し、オブジェクトのTrySetException（）メソッドを呼び出します。
-
-**B.** Task.ContinueWith（）メソッドを呼び出してタスクを作成します。
-
-**C.** Task.Run（）メソッドを呼び出した直後にTask.Statusプロパティを調べます。
-
-**D.** AttachedToParentオプションを使用して、既存のTask.Run（）メソッド内にタスクを作成します。
-
----
-
-**Answer: B**
-
-**Explanation:**
-
-**Taskクラス**
-
-- 値を返さない
-- 非同期に実行する操作
-- メインアプリケーションスレッドで同期的に実行されるのではなく、スレッドプールの中で非同期的に実行される。
-- タスクの確認方は下記プロパティから可能。
-  - Status
-  - IsCanceled 
-  - IsCompleted
-  - Isfaulted
-- ラムダ式でタスクが実行する処理を指定する
-
-※ Question1_3.cs を参照のこと
-
-**Optiopn.A**
-
-`TaskCompletionSouce<TResult>.TrySetException()`
-[TaskCompletionSource<TResult>.TrySetException メソッド](https://docs.microsoft.com/ja-jp/dotnet/api/system.threading.tasks.taskcompletionsource-1.trysetexception?view=netframework-4.8)
-
-**Option.B**
-
-`Task.ContinureWith()`
-ターゲットの `Task` が完了したときに非同期に実行する継続タスクを作成する
-[Task.ContinueWith メソッド](https://docs.microsoft.com/ja-jp/dotnet/api/system.threading.tasks.task.continuewith?view=netframework-4.8)
-
-**Option.C**
-
-上記、Task クラスを参照。
-
-**Option.D**
-
-[アタッチされた子タスクとデタッチされた子タスク](https://docs.microsoft.com/ja-jp/dotnet/standard/parallel-programming/attached-and-detached-child-tasks)
 
 # Question.1-4
 

@@ -11,6 +11,8 @@ namespace MS._70483.App
         public string statement { get; set; }
         public string option { get; set; }
         public string answer { get; set; }
+        public bool isSampleFlag { get; set; }
+        public bool sampleFlag { get; set; }
 
         public Question()
         {
