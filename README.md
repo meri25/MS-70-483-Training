@@ -196,6 +196,91 @@ System.InvalidCastException
   Message=Unable to cast object of type 'System.Single' to type 'System.Double'.
 ```
 
+# No.4
+
+## Statement
+You are creating a console application by using C#.
+You need to access the application assembly.
+Which code segment should you use?
+
+```
+C＃を使用してコンソールアプリケーションを作成しています。
+アプリケーションアセンブリにアクセスする必要があります。
+どのコードセグメントを使用する必要がありますか？
+```
+
+## Options
+A
+
+```c#
+Assembly.GetAssembly(this);
+```
+
+B
+
+```c#
+this.GetType();
+```
+
+C
+
+```c#
+Assembly.Load();
+```
+
+D
+
+```c#
+Assembly.GetExecutingAssembly();
+```
+
+## Answer
+
+**Answer: A**
+
+[Assembly クラス](https://docs.microsoft.com/ja-jp/dotnet/api/system.reflection.assembly?view=netframework-4.8)
+
+**Option.A**
+
+```c#
+Assembly.GetAssembly();
+```
+
+指定した型が定義されている、現在読み込み済みのアセンブリを取得する。
+
+[Assembly.GetAssembly(Type) メソッド](https://docs.microsoft.com/ja-jp/dotnet/api/system.reflection.assembly.getassembly?view=netcore-3.1)
+
+
+**Option.B**
+
+```c#
+this.GetType();
+```
+
+指定された型を表す Type オブジェクトを取得する。
+
+[Object.GetType メソッド](https://docs.microsoft.com/ja-jp/dotnet/api/system.object.gettype?view=netcore-3.1)
+
+**Option.C**
+
+```c#
+Assembly.Load();
+```
+
+アセンブリを読み込む。
+
+[Assembly.Load メソッド](https://docs.microsoft.com/ja-jp/dotnet/api/system.reflection.assembly.load?view=netcore-3.1)
+
+
+**Option.D**
+
+```c#
+Assembly.GetExecutingAssembly();
+```
+
+現在実行中のコードを格納しているアセンブリを取得する。
+
+[Assembly.GetExecutingAssembly メソッド](https://docs.microsoft.com/ja-jp/dotnet/api/system.reflection.assembly.getexecutingassembly?view=netcore-3.1)
 
 ## Question.1
 
@@ -338,63 +423,6 @@ You may not need all of the code blocks.
 
 
 
-# Question.1-2
-You are creating a console application by using C#.
-You need to access the application assembly.
-Which code segment should you use?
-
----
-
-C＃を使用してコンソールアプリケーションを作成しています。
-アプリケーションアセンブリにアクセスする必要があります。
-どのコードセグメントを使用する必要がありますか？
-
-**Option.A**
-
-`Assembly.GetAssembly(this);`
-
-**Option.B**
-
-`this.GetType();`
-
-**Option.C**
-
-`Assembly.Load();`
-
-**Option.D**
-
-`Assembly.GetExecutingAssembly();`
-
----
-
-**Answer: A**
-**Exception:**
-
-[Assembly クラス](https://docs.microsoft.com/ja-jp/dotnet/api/system.reflection.assembly?view=netframework-4.8)
-
-**Option.A**
-
-`Assembly.GetAssembly();`
-
-指定した型が定義されている、現在読み込み済みのアセンブリを取得する。
-
-**Option.B**
-
-`this.GetType();`
-
-指定された型を表す Type オブジェクトを取得する。
-
-**Option.C**
-
-`Assembly.Load();`
-
-アセンブリを読み込む。
-
-**Option.D**
-
-`Assembly.GetExecutingAssembly();`
-
-現在実行中のコードを格納しているアセンブリを取得する。
 
 # Qustion.1-3
 

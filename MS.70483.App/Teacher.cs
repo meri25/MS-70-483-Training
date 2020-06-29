@@ -18,6 +18,9 @@ namespace MS._70483.App
                 case 3:
                     Q3 q3 = new Q3();
                     return q3.Start(question);
+                case 4:
+                    Q4 q4 = new Q4();
+                    return q4.Start(question);
                 default:
                     return this.question;
             }
