@@ -1,4 +1,10 @@
 ﻿# MS-70-483-Training
+**注意**
+
+ここに記載されている解説 & 解答は、MS Docs や私自身の検証によって記載していますので、誤りがあるかもしれません。
+記載に誤りがある場合は、ご指摘いただけると嬉しいです。
+
+**参考**
 
 お世話になっているサイト
 https://www.itshiken.jp/70-483-shiken.html
@@ -320,6 +326,7 @@ D. AttachedToParentオプションを使用して、既存のTask.Run（）メ�
 
 **Taskクラス**
 
+- [MS Docs > Taskクラス](https://docs.microsoft.com/ja-jp/dotnet/api/system.threading.tasks.task?view=netcore-3.1) 
 - 値を返さない
 - 非同期に実行する操作
 - メインアプリケーションスレッドで同期的に実行されるのではなく、スレッドプールの中で非同期的に実行される。
@@ -330,24 +337,87 @@ D. AttachedToParentオプションを使用して、既存のTask.Run（）メ�
   - Isfaulted
 - ラムダ式でタスクが実行する処理を指定する
 
-※ Question1_3.cs を参照のこと
+**TaskStatus 列挙型**
 
-**Optiopn.A**
+- [MS Docs > TaskStatus 列挙型](https://docs.microsoft.com/ja-jp/dotnet/api/system.threading.tasks.taskstatus?view=netcore-3.1#System_Threading_Tasks_TaskStatus_Faulted)
+- Task の有効期間における現在の段階(状態)を表現する
+- フィールド 
+  - Canceled
+    - タスクの CancellationToken がシグナル状態であるときに、タスクがこのトークンを使用して OperationCanceledException をスローすることによって取り消しを受領したか
+	- タスクの実行開始前にタスクの CancellationToken が既にシグナル状態でした
+  - Created
+    - タスクは初期化されているが、まだスケジュールされていない状態
+  - Faulted
+    - タスクはハンドルされない例外が発生したために終了した状態 
+  - RunToCompletion
+    - タスクの実行が正常に完了した状態
+  - WaitingForActivation
+    - タスクはアクティブされるのを待機中
+    - .NET Framework によって内部的にスケジュールされている
+  - WatiningForChildrenToComplete
+    - タスクは実行を終了し、アタッチされている子タスクの完了を暗黙的に待機している状態
+  - WaitingToRun
+    - タスクの実行はスケジュールされているが、開始されていない状態
+    - WataingForActivation との違いが良くわからない。WaitingForRun の方が使いやすそう。
 
-`TaskCompletionSouce<TResult>.TrySetException()`
+A
+
+```
+Create a TaskCompletionSource<T> object and call the TrySetException() method of the object.
+---
+TaskCompletionSource <T>オブジェクトを作成し、オブジェクトのTrySetException（）メソッドを呼び出します。
+```
+
+[TaskCompletionSource<TResult> クラス](https://docs.microsoft.com/ja-jp/dotnet/api/system.threading.tasks.taskcompletionsource-1?view=netcore-3.1)
+は、特定のデリゲートと関連付けない `Task<TResult>` を作成し、外から Task プロパティへアクセスできるようにするのかな？
+
 [TaskCompletionSource<TResult>.TrySetException メソッド](https://docs.microsoft.com/ja-jp/dotnet/api/system.threading.tasks.taskcompletionsource-1.trysetexception?view=netframework-4.8)
+は、基になる `Task<Result>` の Faulted 状態への移行を試み、それを指定の例外にバインドするらしい。
 
-**Option.B**
+設問では、2番目のタスクの例外がスローされたときに、失敗した処理をクリーンアップした上で、再実行しなけらばならないが、この選択肢では例外をバインドするだけで失敗した処理の再実行はできていないので、不適...というのが私の見解。
 
-`Task.ContinureWith()`
-ターゲットの `Task` が完了したときに非同期に実行する継続タスクを作成する
+
+B
+
+```
+Create a task by calling the Task.ContinueWith() method.
+---
+Task.ContinueWith（）メソッドを呼び出してタスクを作成します。
+```
+
 [Task.ContinueWith メソッド](https://docs.microsoft.com/ja-jp/dotnet/api/system.threading.tasks.task.continuewith?view=netframework-4.8)
+は、ターゲットの `Task` が完了したときに非同期に実行する継続タスクを作成する。
+継続タスクで発生した例外は、新しいタスクを作成して例外から回復することがある。
 
-**Option.C**
+これは、設問に合ってそう。
 
-上記、Task クラスを参照。
+詳細は、[Task.Exception プロパティによる例外の確認](https://docs.microsoft.com/ja-jp/dotnet/standard/parallel-programming/exception-handling-task-parallel-library#observing-exceptions-by-using-the-taskexception-property)
+を参照すること。
 
-**Option.D**
+※ [継続](https://docs.microsoft.com/ja-jp/dotnet/standard/parallel-programming/chaining-tasks-by-using-continuation-tasks#about-continuations)とは、`WaitingForActivation` 状態で作成されるタスク。
+
+C
+
+```
+Examine the Task.Status property immediately after the call to the Task.Run() method.
+---
+Task.Run（）メソッドを呼び出した直後にTask.Statusプロパティを調べます。
+```
+
+Task.Status プロパティを調べても発生した例外を処理したことにはならない。
+
+D
+
+```
+Create a task inside the existing Task.Run() method by using the AttachedToParent option.
+---
+AttachedToParentオプションを使用して、既存のTask.Run（）メソッド内にタスクを作成します。
+```
+
+[TaskCreationOptions 列挙型](https://docs.microsoft.com/ja-jp/dotnet/api/system.threading.tasks.taskcreationoptions?view=netcore-3.1#System_Threading_Tasks_TaskCreationOptions_AttachedToParent)の `AttachedToParent` フィールドは、タスクが階層の親にアタッチされることを指定する。
+
+新しく子タスクを作成するものの、例外が発生した処理を再実行せず、親タスクのステータスは IsFault のままなのかな？
+よって、設問が求める例外が発生した時の処理に不適。
 
 [アタッチされた子タスクとデタッチされた子タスク](https://docs.microsoft.com/ja-jp/dotnet/standard/parallel-programming/attached-and-detached-child-tasks)
 

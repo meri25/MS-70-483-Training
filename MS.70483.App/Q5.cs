@@ -22,47 +22,27 @@ namespace MS._70483.App
             {
                 Q5_Lean.Start();
                 this.question.answer = "Got it?";
-                this.sampleFlag = false;
+                this.question.sampleFlag = false;
                 return this.question;
             }
 
             switch (question.option)
             {
                 case "a":
-                    OptionA();
                     this.question.answer = "Wrong!";
                     return this.question;
                 case "b":
-                    OptionB();
-                    this.question.answer = "Wrong!";
+                    this.question.answer = "Correct!";
                     return this.question;
                 case "c":
-                    OptionC();
                     this.question.answer = "Wrong!";
                     return this.question;
                 case "d":
-                    OptionD();
-                    this.question.answer = "Correct!";
+                    this.question.answer = "Wrong!";
                     return this.question;
                 default:
                     return this.question;
             }
-        }
-        private static void OptionA()
-        {
-
-        }
-        private static void OptionB()
-        {
-
-        }
-        private static void OptionC()
-        {
-
-        }
-        private static void OptionD()
-        {
-
         }
     }
 
