@@ -25,6 +25,9 @@ namespace MS._70483.App
                 case 5:
                     Q5 q5 = new Q5();
                     return q5.Start(question);
+                case 6:
+                    Q6 q6 = new Q6();
+                    return q6.Start(question);
                 default:
                     return this.question;
             }
@@ -46,6 +49,9 @@ namespace MS._70483.App
                 case 5:
                     Q5 q5 = new Q5();
                     return q5.isSampleFlag;
+                case 6:
+                    Q6 q6 = new Q6();
+                    return q6.isSampleFlag;
                 default:
                     return this.question.isSampleFlag;
             }

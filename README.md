@@ -72,7 +72,7 @@ else
 
 **A**
 
-'#define ディレクティブは、ファイルの先頭で指定する必要があります。
+`#define` ディレクティブは、ファイルの先頭で指定する必要があります。
 [#define (C# リファレンス)](https://docs.microsoft.com/ja-jp/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-define)
 
 # No.2
@@ -422,7 +422,102 @@ AttachedToParentオプションを使用して、既存のTask.Run（）メソ�
 [アタッチされた子タスクとデタッチされた子タスク](https://docs.microsoft.com/ja-jp/dotnet/standard/parallel-programming/attached-and-detached-child-tasks)
 
 
+# No.6
 
+## Statement
+
+
+You are modifying an application that processes leases. 
+The following code defines the Lease class. 
+(Line numbers are included for reference only.)
+
+You need to implement the notification mechanism.
+Which two actions should you perform? 
+(Each correct answer presents part of the solution. Choose two.)
+
+```
+リースを処理するアプリケーションを変更しています。
+次のコードは、Leaseクラスを定義しています。
+（行番号は参照用にのみ含まれています。）
+
+通知メカニズムを実装する必要があります。
+実行すべき2つのアクションはどれですか？ 
+（各正解はソリューションの一部を示します。2つ選択してください。）
+```
+
+```c#
+    class Lease
+    {
+        // line 03
+        private int _term;
+        private const int MaximumTerm = 5;
+        private const decimal Rate = 0.034m;
+        public int Term
+        {
+            get
+            {
+                return _term;
+            }
+            set
+            {
+                if (value <= MaximumTerm)
+                {
+                    _term = value;
+                }
+                else
+                {
+                    // line 21
+                }
+            }
+        }
+        public delegate void MaximumTermReachedHandler(object source, EventArgs e);
+    }
+```
+
+A. Insert the following code segment at line 03
+```c#
+public event MaximumTermReachedHandler OnmaximamTerReached;
+```
+
+B. Insert the following code segment at line 21
+```c#
+if (OnmaximamTerReached != null)
+{
+    OnmaximamTerReached(this, new EventArgs());
+}
+```
+
+C. Insert the following code segment at line 21
+```c#
+value = MaximumTerm;
+```
+
+D. Insert the following code segment at line 03
+```c#
+public MaximumTermReachedHandler {get; set; }
+```
+
+E. Insert the following code segment at line 03
+```c#
+public string MaximumTermReachedEvent;
+```
+
+F. Insert the following code segment at line 21
+```c#
+value = 5;
+```
+
+## Answer
+**Answer: A, B**
+
+`value`
+
+- コンテクストキーワード `value` は、`set` アクセサーの propaty と indexer の宣言で利用される。
+- メソッドの入力パラメータ~のような振る舞いをする。
+
+`event`
+
+- パブリッシャークラス内にイベントを宣言する。
 
 
 
@@ -579,40 +674,7 @@ You may not need all of the code blocks.
 
 
 
-# Question.1-4
 
-You are modifying an application that processes leases. 
-The following code defines the Lease class. 
-(Line numbers are included for reference only.)
-
-You need to implement the notification mechanism.
-Which two actions should you perform? 
-(Each correct answer presents part of the solution. Choose two.)
-
----
-
-リースを処理するアプリケーションを変更しています。
-次のコードは、Leaseクラスを定義しています。
-（行番号は参照用にのみ含まれています。）
-
-通知メカニズムを実装する必要があります。
-実行すべき2つのアクションはどれですか？ 
-（各正解はソリューションの一部を示します。2つ選択してください。）
-
-※ Question1_4.cs を参照すること。
-
-**Answer: A, B**
-
-**Explanation:**
-
-`value`
-
-- コンテクストキーワード `value` は、`set` アクセサーの propaty と indexer の宣言で利用される。
-- メソッドの入力パラメータ~のような振る舞いをする。
-
-`event`
-
-- パブリッシャークラス内にイベントを宣言する。
 
 # Question.1-5
 You are developing an application that uses structured exception handling.
