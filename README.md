@@ -520,11 +520,66 @@ value = 5;
 - パブリッシャークラス内にイベントを宣言する。
 
 
+A. Insert the following code segment at line 03
+```c#
+public event MaximumTermReachedHandler OnmaximamTerReached;
+```
 
+[イベント](https://docs.microsoft.com/ja-jp/dotnet/standard/events/#events)
+- アクションを知らせるために、オブジェクトによって送信されるメッセージ。
+- イベントを発生させるオブジェクトを "イベントの送信元" と呼ぶ。
+- イベントの送信元は、発生させたイベントをどのオブジェクトまたはメソッドが受信or処理するかの情報を持っていない。
 
+イベントの定義
+- `event` を使用してイベント用のデリゲートの型を指定する。
 
+イベントの発生
+- `protected` でマークされたメソッドを追加(呼び出す？)ことでイベントが発生する
+   - メソッドの命名規則：`On` [EventName] 
+   - パラメータ：イベントデータオブジェクト `EventArgs` 型または派生型のオブジェクト
 
+[EventHandler](https://docs.microsoft.com/ja-jp/dotnet/api/system.eventhandler?view=netcore-3.1) は
+イベントデータを含まないイベントを処理するメソッドを表す。
 
+A では、`event` を使用して、デリゲート `MaximumTermReachedHandler` 型の指定した On から始まるイベントの定義をしているので、正解。
+
+B. Insert the following code segment at line 21
+```c#
+if (OnmaximamTerReached != null)
+{
+    OnmaximamTerReached(this, new EventArgs());
+}
+```
+
+イベントを発生させるためのメソッド `OnMaximamTerReached` を呼び出していて、
+イベントデータオブジェクトを渡しているので、正解。
+
+C. Insert the following code segment at line 21
+```c#
+value = MaximumTerm;
+```
+
+`value` に `MaximunTerm` の値を詰め替えているだけで、イベントは発生しないので不適。
+
+D. Insert the following code segment at line 03
+```c#
+public MaximumTermReachedHandler {get; set; }
+```
+
+`event` を利用してイベントを定義していないので、不適。
+
+E. Insert the following code segment at line 03
+```c#
+public string MaximumTermReachedEvent;
+```
+
+`event` を利用してイベントを定義していないので、不適。
+
+F. Insert the following code segment at line 21
+```c#
+value = 5;
+```
+`value` に 5を入れているだけで、イベントは発生しないので不適。
 
 
 
