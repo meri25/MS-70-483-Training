@@ -1035,6 +1035,44 @@ public class Container
 ```
 
 
+# No.11
+
+## Statement
+
+You are developing an application by using C#.
+You have the following requirements:
+Support 32-bit and 64-bit system configurations.
+Include pre-processor directives that are specific to the system configuration.
+Deploy an application version that includes both system configurations to testers.
+Ensure that stack traces include accurate line numbers.
+You need to configure the project to avoid changing individual configuration settings every time you deploy the application to testers.
+Which two actions should you perform? (Each correct answer presents part of the solution. Choose two.)
+
+A. Update the platform target and conditional compilation symbols for each application configuration.
+B. Create two application configurations based on the default Release configuration.
+C. Optimize the application through address rebasing in the 64-bit configuration.
+D. Create two application configurations based on the default Debug configuration.
+
+```c#
+C＃を使用してアプリケーションを開発しています。
+次の要件があります。
+32ビットおよび64ビットのシステム構成をサポートします。
+システム構成に固有のプリプロセッサディレクティブを含めます。
+両方のシステム構成を含むアプリケーションバージョンをテスターにデプロイします。
+スタックトレースに正確な行番号が含まれていることを確認します。
+アプリケーションをテスターにデプロイするたびに個々の構成設定を変更しないようにプロジェクトを構成する必要があります。
+どの2つのアクションを実行する必要がありますか？ （それぞれの正解がソリューションの一部を示しています。2つ選択してください。）
+
+A.各アプリケーション構成のプラットフォームターゲットと条件付きコンパイルシンボルを更新します。
+B.デフォルトのリリース構成に基づいて2つのアプリケーション構成を作成します。
+C. 64ビット構成でアドレスをリベースして、アプリケーションを最適化します。
+D.デフォルトのデバッグ構成に基づいて2つのアプリケーション構成を作成します。
+```
+
+## Answer
+
+**Answer: B,D**
+
 
 
 ## Question.1
