@@ -1153,7 +1153,28 @@ D.
 CounterType = PerformanceCounterType.CounterMultiBase
 ```
 
+# No.13
 
+## Statement
+
+You are developing an application that will transmit large amounts of data between a client computer and a server.
+You need to ensure the validity of the data by using a cryptographic hashing algorithm.
+Which algorithm should you use?
+
+```
+クライアントコンピューターとサーバー間で大量のデータを送信するアプリケーションを開発しています。
+暗号化ハッシュアルゴリズムを使用して、データの有効性を確認する必要があります。
+どのアルゴリズムを使用する必要がありますか？
+```
+
+A. HMACSHA256
+B. RNGCryptoServiceProvider
+C. DES
+D. Aes
+
+## Answer
+
+**Answer: A**
 
 ## Question.1
 
