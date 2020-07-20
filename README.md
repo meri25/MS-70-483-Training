@@ -582,7 +582,7 @@ value = 5;
 `value` に 5を入れているだけで、イベントは発生しないので不適。
 
 
-# No.6
+# No.7
 
 ## Statement
 
@@ -711,6 +711,100 @@ catch (Exception ex)
 }
 ```
 
+
+# No.8
+
+## Statement
+
+You are developing an application that includes methods named ConvertAmount and TransferFunds. 
+You need to ensure that the precision and range of the value in the amount variable is not lost when the TransferFunds() method is called.
+Which code segment should you use?
+
+```
+ConvertAmount および TransferFunds という名前のメソッドを含むアプリケーションを開発しています。
+TransferFunds（）メソッドが呼び出されたときに、amount 変数の値の精度と範囲が失われないようにする必要があります。
+どのコードセグメントを使用する必要がありますか？
+```
+
+```c#
+public delegate void AddUserCallback(int i); 
+public class UserTracker
+{
+    List<User> users = new List<User>();
+    public void AddUser(string name, AddUserCallback callbacj)
+    {
+        users.Add(new user(name)); 
+        callback(users.Count);
+    }
+}
+    // line 11
+public class Runner
+{
+    // line 14
+    UserTracker tracker = new UserTracker();
+    public void Add(string name)
+    {
+    // line 18
+    }
+}
+```
+
+A. 
+```c#
+// Insert the following code segment at line 14
+private static void PrintUserCount(int i)
+{
+...
+}
+// Insert the following code segment at line 18
+AddUserCallback callback = PrintUserCount; 
+```
+
+B. 
+```c#
+// Insert the following code segment at line 11
+delegate void AddUserDelegate(UserTracker userTracker);
+
+// Insert the following code segment at line 18
+AddUserDelegate addDelegate = (userTracker) =>
+{
+...
+};
+addDelegate(tracker);
+```
+
+C. 
+```c#
+// Insert the following code segment at line 11
+delegate void AddUserDelegate(string name, AddUserCallback);
+
+// Insert the following code segment at line 18
+AddUserDelegate add = (i, callback) =>
+{
+...
+};
+```
+
+D. 
+```c#
+// Insert the following code segment at line 18
+???
+```
+
+## Answer
+
+**Answer: A**
+
+doubleキーワードは、64ビット浮動小数点値を格納する単純型を示します。
+floatキーワードは、32ビット浮動小数点値を格納する単純型を示します。
+参照：double（C＃リファレンス）
+
+
+
+
+
+
+
 ## Question.1
 
 You write the following method (line numbers are included for reference only):
@@ -732,23 +826,7 @@ How should you complete the code? To answer,
 drag the appropriate code elements to the correct targets in the answer area. Each code element may be used once, 
 more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.
 
-# Question.5
 
-You are developing an application that includes methods named ConvertAmount and TransferFunds. 
-You need to ensure that the precision and range of the value in the amount variable is not lost when the TransferFunds() method is called.
-Which code segment should you use?
-
-※ 選択肢は、Question5.cs を参照してください。
-
----
-
-**Answer: A **
-
-**Explanation: **
-
-doubleキーワードは、64ビット浮動小数点値を格納する単純型を示します。
-floatキーワードは、32ビット浮動小数点値を格納する単純型を示します。
-参照：double（C＃リファレンス）
 
 # Question.6
 
@@ -954,106 +1032,6 @@ public class Container
 }
 ```
 
-# Question.1-7
-
-You are adding a public method named UpdateScore to a public class named ScoreCard.
-The code region that updates the score field must meet the following requirements:
-- It must be accessed by only one thread at a time.
-- It must not be vulnerable to a deadlock situation.
-You need to implement the UpdateScore() method.
-What should you do?
-
-**A.** Place the code region inside the following lock statement:
-
-**B.** Add a private object named `lockObject` to the `ScoreCard` class. Place the code region inside the following lock statement:
-
-**C.** Apply the following attributbe to the `UpdateScore()` method signature:
-
-**D.** Add a public static object named `lockObject` to the `Scored` class. Place the code Region inside the following lock statement: 
-
----
-
-UpdateScoreという名前のパブリックメソッドをScoreCardという名前のパブリッククラスに追加しています。
-スコアフィールドを更新するコード領域は、次の要件を満たしている必要があります。
-- 一度に1つのスレッドのみがアクセスする必要があります。
-- デッドロック状態に対して脆弱であってはなりません。
-UpdateScore（）メソッドを実装する必要があります。
-あなたは何をするべきか？
-
-**A.** 次のロックステートメント内にコード領域を配置します。
-
-```c#
-lock (this)
-{
-	...
-}
-```
-
-**B.** `lockObject`という名前のプライベートオブジェクトを` ScoreCard`クラスに追加します。 コード領域を次のロックステートメント内に配置します。
-
-```c#
-lock (lockObject)
-{
-	...
-}
-```
-
-**C.** 次の属性を `UpdateScore()` メソッドシグネチャに適用します。
-
-```c#
-[MethodImp(MethodlOptions.Synchronized)]
-```
-
-**D.** `lockObject`という名前のパブリック静的オブジェクトを` Scored`クラスに追加します。 次のロックステートメント内にコードRegionを配置します。
-
-```c#
-lock (typeof(ScoreCard))
-{
-	...
-}
-```
-
----
-
-**Answer: B**
-
-**Exception:**
-
-**lock ステートメント**
-
-- `lock` ステートメントは、指定のオブジェクトに対する相互排除ロックを取得し、ステートメントブロックを実施してから解放する。
-- ロックが保たれている間、ロックを保持するスレッドでは、ロックを再取得し開放することができる。
-- 他のスレッドは、ブロックされてロックを取得できず、ロックが解放されるまで待機します。
-- `x` は参照型の式です。
-	- ロックオブジェクトとして使用してはいけないオブジェクト
-		- `this`: ロックとして呼び出し元に私用される可能性がありため。
-		- `Type` インスタンス: `typeof` 演算子またはリフレクションによって取得される可能性があるため。
-		- 文字列リテラルを含む文字列インスタンス: インターン処理される可能性があるため。
-
-```c#
-lock (x)
-{
-	// ...
-}
-```
-
-**A.** 
-
-- `this` は、ロックとして呼び出し元に私用される可能性があるため、ロックオブジェクトとして私用してはならない。
-
-[参照](https://docs.microsoft.com/ja-jp/dotnet/csharp/language-reference/keywords/lock-statement#remarks)
-
-**B.** 
-
-- 正解。
-
-**C.** 
-
-- 
-
-**D.** 
-
-- `typeof` 演算子またはリフレクションによって取得される可能性があるため。
 
 # Question.1-8
 
