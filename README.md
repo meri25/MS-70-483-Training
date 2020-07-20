@@ -787,17 +787,112 @@ AddUserDelegate add = (i, callback) =>
 
 D. 
 ```c#
-// Insert the following code segment at line 18
-???
+
 ```
 
 ## Answer
 
-**Answer: A**
+**Answer: D**
+
+**Explanation: **
 
 doubleキーワードは、64ビット浮動小数点値を格納する単純型を示します。
 floatキーワードは、32ビット浮動小数点値を格納する単純型を示します。
 参照：double（C＃リファレンス）
+
+
+# No.9
+
+## Statement
+
+You are adding a public method named UpdateScore to a public class named ScoreCard.
+The code region that updates the score field must meet the following requirements:
+- It must be accessed by only one thread at a time.
+- It must not be vulnerable to a deadlock situation.
+You need to implement the UpdateScore() method.
+What should you do?
+
+```c#
+UpdateScoreという名前のパブリックメソッドをScoreCardという名前のパブリッククラスに追加しています。
+スコアフィールドを更新するコード領域は、次の要件を満たしている必要があります。
+- 一度に1つのスレッドのみがアクセスする必要があります。
+- デッドロック状態に対して脆弱であってはなりません。
+UpdateScore（）メソッドを実装する必要があります。
+あなたは何をするべきか？
+```
+
+A. 次のロックステートメント内にコード領域を配置します。
+
+```c#
+lock (this)
+{
+	...
+}
+```
+
+B. `lockObject`という名前のプライベートオブジェクトを` ScoreCard`クラスに追加します。 コード領域を次のロックステートメント内に配置します。
+
+```c#
+lock (lockObject)
+{
+	...
+}
+```
+
+C. 次の属性を `UpdateScore()` メソッドシグネチャに適用します。
+
+```c#
+[MethodImp(MethodlOptions.Synchronized)]
+```
+
+D. `lockObject`という名前のパブリック静的オブジェクトを` Scored`クラスに追加します。 次のロックステートメント内にコードRegionを配置します。
+
+```c#
+lock (typeof(ScoreCard))
+{
+	...
+}
+```
+
+## Answer 
+
+**Answer: B**
+
+**lock ステートメント**
+
+- `lock` ステートメントは、指定のオブジェクトに対する相互排除ロックを取得し、ステートメントブロックを実施してから解放する。
+- ロックが保たれている間、ロックを保持するスレッドでは、ロックを再取得し開放することができる。
+- 他のスレッドは、ブロックされてロックを取得できず、ロックが解放されるまで待機します。
+- `x` は参照型の式です。
+	- ロックオブジェクトとして使用してはいけないオブジェクト
+		- `this`: ロックとして呼び出し元に私用される可能性がありため。
+		- `Type` インスタンス: `typeof` 演算子またはリフレクションによって取得される可能性があるため。
+		- 文字列リテラルを含む文字列インスタンス: インターン処理される可能性があるため。
+
+```c#
+lock (x)
+{
+	// ...
+}
+```
+
+**A.** 
+
+- `this` は、ロックとして呼び出し元に私用される可能性があるため、ロックオブジェクトとして使用してはならない。
+
+[参照](https://docs.microsoft.com/ja-jp/dotnet/csharp/language-reference/keywords/lock-statement#remarks)
+
+**B.** 
+
+- 正解。
+
+**C.** 
+
+- 
+
+**D.** 
+
+- `typeof` 演算子またはリフレクションによって取得される可能性があるため。
 
 
 
@@ -935,7 +1030,6 @@ You may not need all of the code blocks.
 
 
 
-
 # Question.1-6
 
 You are developing an application that includes a class named UserTracker. 
@@ -1032,6 +1126,106 @@ public class Container
 }
 ```
 
+# Question.1-7
+
+You are adding a public method named UpdateScore to a public class named ScoreCard.
+The code region that updates the score field must meet the following requirements:
+- It must be accessed by only one thread at a time.
+- It must not be vulnerable to a deadlock situation.
+You need to implement the UpdateScore() method.
+What should you do?
+
+**A.** Place the code region inside the following lock statement:
+
+**B.** Add a private object named `lockObject` to the `ScoreCard` class. Place the code region inside the following lock statement:
+
+**C.** Apply the following attributbe to the `UpdateScore()` method signature:
+
+**D.** Add a public static object named `lockObject` to the `Scored` class. Place the code Region inside the following lock statement: 
+
+---
+
+UpdateScoreという名前のパブリックメソッドをScoreCardという名前のパブリッククラスに追加しています。
+スコアフィールドを更新するコード領域は、次の要件を満たしている必要があります。
+- 一度に1つのスレッドのみがアクセスする必要があります。
+- デッドロック状態に対して脆弱であってはなりません。
+UpdateScore（）メソッドを実装する必要があります。
+あなたは何をするべきか？
+
+**A.** 次のロックステートメント内にコード領域を配置します。
+
+```c#
+lock (this)
+{
+	...
+}
+```
+
+**B.** `lockObject`という名前のプライベートオブジェクトを` ScoreCard`クラスに追加します。 コード領域を次のロックステートメント内に配置します。
+
+```c#
+lock (lockObject)
+{
+	...
+}
+```
+
+**C.** 次の属性を `UpdateScore()` メソッドシグネチャに適用します。
+
+```c#
+[MethodImp(MethodlOptions.Synchronized)]
+```
+
+**D.** `lockObject`という名前のパブリック静的オブジェクトを` Scored`クラスに追加します。 次のロックステートメント内にコードRegionを配置します。
+
+```c#
+lock (typeof(ScoreCard))
+{
+	...
+}
+```
+
+---
+
+**Answer: B**
+
+**Exception:**
+
+**lock ステートメント**
+
+- `lock` ステートメントは、指定のオブジェクトに対する相互排除ロックを取得し、ステートメントブロックを実施してから解放する。
+- ロックが保たれている間、ロックを保持するスレッドでは、ロックを再取得し開放することができる。
+- 他のスレッドは、ブロックされてロックを取得できず、ロックが解放されるまで待機します。
+- `x` は参照型の式です。
+	- ロックオブジェクトとして使用してはいけないオブジェクト
+		- `this`: ロックとして呼び出し元に私用される可能性がありため。
+		- `Type` インスタンス: `typeof` 演算子またはリフレクションによって取得される可能性があるため。
+		- 文字列リテラルを含む文字列インスタンス: インターン処理される可能性があるため。
+
+```c#
+lock (x)
+{
+	// ...
+}
+```
+
+**A.** 
+
+- `this` は、ロックとして呼び出し元に私用される可能性があるため、ロックオブジェクトとして私用してはならない。
+
+[参照](https://docs.microsoft.com/ja-jp/dotnet/csharp/language-reference/keywords/lock-statement#remarks)
+
+**B.** 
+
+- 正解。
+
+**C.** 
+
+- 
+
+**D.** 
+
+- `typeof` 演算子またはリフレクションによって取得される可能性があるため。
 
 # Question.1-8
 
