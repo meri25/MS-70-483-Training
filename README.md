@@ -1074,6 +1074,86 @@ D.デフォルトのデバッグ構成に基づいて2つのアプリケーシ�
 **Answer: B,D**
 
 
+# No.12
+
+## Statement
+
+You are developing a method named CreateCounters that will create performance counters for an application.
+The method includes the following code. (Line numbers are included for reference only.)
+You need to ensure that Counter1 is available for use in Windows Performance Monitor (PerfMon).
+Which code segment should you insert at line 16?
+
+```
+アプリケーションのパフォーマンスカウンターを作成する CreateCounters という名前のメソッドを開発しています。
+このメソッドには次のコードが含まれます。 （行番号は参照用にのみ含まれています。）
+Counter1 を Windows パフォーマンスモニター（PerfMon）で使用できるようにする必要があります。
+16行目に挿入するコードセグメントはどれですか？
+```
+
+```c#
+void CreateCounters()
+{
+    if (!PerformanceCounterCategory.Exists("Contoso"))
+    {
+        var counter = new CounterCreationDataCollection();
+        var ccdCounterl = new CounterCreationData()
+        {
+            CounterName = "Counterl";
+            CounterType = PerformanceCounterType.SampleFraction
+        };
+        counters.Add(ccdCoujnterl);
+        var ccdCounter2 = new CounterCreationData
+        {
+            CounterName = "Counter2",
+            // Line16
+        };
+        counters.Add(ccdCouter2);
+        PerformanceCounterCategory.Create("Contoso", "Help string",
+            PerformanceCounterCategoryType.MultiInstance, counters);
+    }
+}
+```
+
+```c#
+A. CounterType = PerformanccCounterType.RawBase
+B. CounterType = PerformanceCounterType.AverageBase
+C. CounterType = PerformanceCounterType.SampleBase
+D. CounterType = PerformanceCounterType.CounterMultiBase
+```
+
+## Answer
+
+**Answer: C**
+
+**PerformanceCounterCategory クラス**
+
+- パフォーマンスカウンターのカテゴリを定義するパフォーマンスオブジェクトを表す。
+
+A.
+
+```c#
+CounterType = PerformanccCounterType.RawBase
+```
+
+B.
+
+```c#
+CounterType = PerformanceCounterType.AverageBase
+```
+
+C.
+
+```c#
+CounterType = PerformanceCounterType.SampleBase
+```
+
+D.
+
+```c#
+CounterType = PerformanceCounterType.CounterMultiBase
+```
+
+
 
 ## Question.1
 
@@ -1510,26 +1590,7 @@ D. CounterType = PerformanceCounterType.CounterMultiBase
 
 - パフォーマンスカウンターのカテゴリを定義するパフォーマンスオブジェクトを表す。
 
-# Question.1-11
 
-You are developing an application that will transmit large amounts of data between a client computer and a server.
-You need to ensure the validity of the data by using a cryptographic hashing algorithm.
-Which algorithm should you use?
-
----
-
-クライアントコンピューターとサーバー間で大量のデータを送信するアプリケーションを開発しています。
-暗号化ハッシュアルゴリズムを使用して、データの有効性を確認する必要があります。
-どのアルゴリズムを使用する必要がありますか？
-
-A. HMACSHA256
-B. RNGCryptoServiceProvider
-C. DES
-D. Aes
-
----
-
-**Answer: A**
 
 # Question.1-12
 
