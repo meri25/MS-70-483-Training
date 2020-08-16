@@ -1228,8 +1228,6 @@ E. Windows Installer 2.0を使用して、アセンブリをGACに追加しま�
 
 **Answer:DE**
 
-**Explanation: **
-
 **グローバルアセンブリキャッシュ**
 
 - コンピューター上の複数のアプリケーションで共有するように特別に指定されたアセンブリを格納する
@@ -1273,8 +1271,36 @@ private static deciaml CalculateInterest(decimal loanAmount, int loanTerm, decim
 
 ## Answer
 
-**Answer: A**
+**Answer: B**
 
+既定では、Debug.Assert メソッドはデバッグビルドでのみ機能します。 リリースビルドでアサーションを実行する場合は、Trace.Assert メソッドを使用します。
+
+[Trace クラス](https://docs.microsoft.com/ja-jp/dotnet/api/system.diagnostics.trace?view=netcore-3.1)<br>
+コードの実行をトレースするための一連のメソッドとプロパティを提供する。
+ - Assert(boolean)
+   - boolean が true：静観
+   - boolean が false：異常を出してプログラムを終了させる
+
+[Debug クラス](https://docs.microsoft.com/ja-jp/dotnet/api/system.diagnostics.debug?view=netcore-3.1)<br>
+ - Assert(boolean)
+   - boolean が true：静観
+   - boolean が false：異常を出してプログラムを終了させる
+
+A. 03行に次のコードセグメントを挿入します。Trace.Assert（loanAmount> 0）;
+
+Trace.Assert は、リリースビルドの際に実行されるため、不適。
+
+B. 03行に次のコードセグメントを挿入します。Debug.Assert（loanAmount> 0）;
+
+デバッグビルドの際に、loanAmount が0より小さい場合にプログラムの実行が中断されるので正解。
+
+C. 05行に次のコードセグメントを挿入します。Debug.Write（loanAmount> 0）;
+
+Debug.Write の引数は、boolean のみの指定はできない。
+
+D. 次のコードセグメントを行05に挿入します。Trace.Write（loanAmount> 0）;
+
+Trace.Write の引数は、boolean のみの指定はできず、デバッグビルドで Trace は利用できない。
 
 
 ## Question.1
