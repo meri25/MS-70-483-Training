@@ -787,14 +787,14 @@ AddUserDelegate add = (i, callback) =>
 
 D. 
 ```c#
-
+問題集に選択肢が記載されていない
 ```
 
 ## Answer
 
 **Answer: D**
 
-**Explanation: **
+**Explanation:**
 
 doubleキーワードは、64ビット浮動小数点値を格納する単純型を示します。
 floatキーワードは、32ビット浮動小数点値を格納する単純型を示します。
@@ -1175,6 +1175,107 @@ D. Aes
 ## Answer
 
 **Answer: A**
+
+A. HMACSHA256
+
+HMAC とは、メッセージ認証符号 の一つであり、秘密鍵とメッセージとハッシュ関数をもとに計算される。
+HMAC は、送信側と受信側が秘密キーを共有している場合に、セキュリティで保護されていないチャネルを介して送信されたメッセージが改ざんされていないかどうかを判断するために使用できます。HMAC は、送信側と受信側が秘密キーを共有している場合に、セキュリティで保護されていないチャネルを介して送信されたメッセージが改ざんされていないかどうかを判断するために使用できます。
+
+参考：[HMACSHA256 クラス](https://docs.microsoft.com/ja-jp/dotnet/api/system.security.cryptography.hmacsha256?view=netcore-3.1)
+
+B. RNGCryptoServiceProvider
+
+暗号化サービス プロバイダー (CSP : Cryptographic Service Provider) によって提供された実装を使用して、暗号乱数ジェネレーター (RNG : Random Number Generator) を実装します。
+暗号化ハッシュアルゴリズムではなく、受信されたデータを識別するための手段としては不適。
+
+C. DES
+
+暗号化ハッシュアルゴリズムではなく、受信されたデータを識別するための手段としては不適。
+
+D. Aes
+
+暗号化ハッシュアルゴリズムではなく、受信されたデータを識別するための手段としては不適。
+
+
+
+# No.14
+
+## Statement
+
+You are developing an assembly that will be used by multiple applications.
+You need to install the assembly in the Global Assembly Cache (GAC).
+Which two actions can you perform to achieve this goal? (Each correct answer presents a complete solution. Choose two.)
+
+A. Use the Assembly Registration tool (regasm.exe) to register the assembly and to copy the assembly to the GAC.
+B. Use the Strong Name tool (sn.exe) to copy the assembly into the GAC.
+C. Use Microsoft Register Server (regsvr32.exe) to add the assembly to the GAC.
+D. Use the Global Assembly Cache tool (gacutil.exe) to add the assembly to the GAC.
+E. Use Windows Installer 2.0 to add the assembly to the GAC
+
+```
+複数のアプリケーションで使用されるアセンブリを開発しています。
+グローバルアセンブリキャッシュ（GAC）にアセンブリをインストールする必要があります。
+この目標を達成するために実行できる2つのアクションはどれですか？ （各正解は完全なソリューションを示します。2つ選択してください。）
+
+A. アセンブリ登録ツール（regasm.exe）を使用して、アセンブリを登録し、アセンブリをGACにコピーします。
+B. 厳密名ツール（sn.exe）を使用して、アセンブリをGACにコピーします。
+C. Microsoft Register Server（regsvr32.exe）を使用して、アセンブリをGACに追加します。
+D. グローバルアセンブリキャッシュツール（gacutil.exe）を使用して、アセンブリをGACに追加します。
+E. Windows Installer 2.0を使用して、アセンブリをGACに追加します
+```
+
+## Answer 
+
+**Answer:DE**
+
+**Explanation: **
+
+**グローバルアセンブリキャッシュ**
+
+- コンピューター上の複数のアプリケーションで共有するように特別に指定されたアセンブリを格納する
+
+
+# No.15
+
+## Statemt
+
+You are debugging an application that calculates loan interest. The application includes the following code. (Line numbers are included for reference only.)
+You need to ensure that the debugger breaks execution within the CalculateInterest() method when the loanAmount variable is less than or equal to zero in all
+builds of the application.
+What should you do?
+
+A. Insert the following code segment at line 03:Trace.Assert(loanAmount > 0);
+B. Insert the following code segment at line 03:Debug.Assert(loanAmount > 0);
+C. Insert the following code segment at line 05:Debug.Write(loanAmount > 0);
+D. Insert the following code segment at line 05:Trace.Write(loanAmount > 0);
+
+```
+ローン金利を計算するアプリケーションをデバッグしています。 アプリケーションには、次のコードが含まれています。 （行番号は参照用にのみ含まれています。）
+あなたは、loanAmount変数がすべてゼロ以下である場合、デバッガがCalculateInterest（）メソッド内で実行を中断することを確認する必要があります
+アプリケーションのビルド。
+あなたは何をするべきか？
+
+A. 03行に次のコードセグメントを挿入します。Trace.Assert（loanAmount> 0）;
+B. 03行に次のコードセグメントを挿入します。Debug.Assert（loanAmount> 0）;
+C. 05行に次のコードセグメントを挿入します。Debug.Write（loanAmount> 0）;
+D.次のコードセグメントを行05に挿入します。Trace.Write（loanAmount> 0）;
+```
+
+```c#
+private static deciaml CalculateInterest(decimal loanAmount, int loanTerm, decimal loanRate)
+{
+    // line 03
+    decial interstAmount = loanAmount * loanRate * loanTerm;
+    // line 05
+    return interestAmount;
+}
+```
+
+## Answer
+
+**Answer: A**
+
+
 
 ## Question.1
 
