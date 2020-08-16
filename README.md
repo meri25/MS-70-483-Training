@@ -1330,6 +1330,38 @@ Regexオブジェクトが最初にインスタンス化されるときに、式
 
 ```
 
+```c#
+bool ConstainsHyperLink(string inputData)
+{
+    string regExPattern = "href\\s*=\\s*(?<1>[^\"]*|(?<1>\\S+))";
+    return evaluator.IsMatch(inputData);
+}
+```
+
+A.
+```c#
+var evaluator = new Regex(regExPattern, RegexOptions.CulutureInvariant); 
+```
+
+B.
+```c#
+var evaluator = new Regex(inputData);
+```
+
+C.
+```c#
+var assemblyName = "Validation";
+var compilationInfo = new RegexCompilationInfo(inpuData, 
+    RegexOptions.IgnoreCase, "Href", assemblyName, true);
+Regex.CompileToAssembly(new[] { compilationInfo }, new AssemblyName(assemplyName));
+var evaluator = new Regex(regExPattern, RegexOptions.CulutureInvariant);
+```
+
+D.
+```c#
+var evaluator = new Regex(regExPattern, RegexOptions.Compiled);
+```
+
 ## Answer
 
 **Answer: D**
@@ -1337,9 +1369,7 @@ Regexオブジェクトが最初にインスタンス化されるときに、式
 A.
 
 **RegrexOptions 列挙型**
-
 - 正規表現オプションを設置絵するために使用する列挙値を提供する。
-
 - `RegrexOptions.CultureInvariant`: 言語の違いが無視されるよう指定する。
 
 B.
@@ -1349,7 +1379,6 @@ B.
 C.
 
 **RegexCompilationInfo クラス**
-
 - 正規表現をコンパイルしてスタンドアロンアセンブリを作成するために使用する正規表現についての情報を提供する。
 
 D.
