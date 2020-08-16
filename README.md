@@ -1303,6 +1303,65 @@ D. 次のコードセグメントを行05に挿入します。Trace.Write（loan
 Trace.Write の引数は、boolean のみの指定はできず、デバッグビルドで Trace は利用できない。
 
 
+# No.16
+
+You are developing a C# application that has a requirement to validate some string input data by using the Regex class.
+https://www.gratisexam.com/
+The application includes a method named ContainsHyperlink. 
+The ContainsHyperlink() method will verify the presence of a URI and surrounding markup.
+The following code segment defines the ContainsHyperlink() method. 
+(Line numbers are included for reference only.)
+
+The expression patterns used for each validation function are constant.
+You need to ensure that the expression syntax is evaluated only once when the Regex object is initially instantiated.
+Which code segment should you insert at line 04?
+
+```
+Regexクラスを使用して一部の文字列入力データを検証する必要があるC＃アプリケーションを開発しています。
+https://www.gratisexam.com/
+アプリケーションには、ContainsHyperlinkという名前のメソッドが含まれています。
+ContainsHyperlink（）メソッドは、URIと周囲のマークアップの存在を検証します。
+次のコードセグメントは、ContainsHyperlink（）メソッドを定義しています。
+（行番号は参照用にのみ含まれています。）
+
+各検証関数に使用される式パターンは一定です。
+Regexオブジェクトが最初にインスタンス化されるときに、式の構文が1回だけ評価されるようにする必要があります。
+行04にどのコードセグメントを挿入する必要がありますか？
+
+```
+
+## Answer
+
+**Answer: D**
+
+A.
+
+**RegrexOptions 列挙型**
+
+- 正規表現オプションを設置絵するために使用する列挙値を提供する。
+
+- `RegrexOptions.CultureInvariant`: 言語の違いが無視されるよう指定する。
+
+B.
+
+- `Regex(String)`: 指定した正規表現の `Regex` クラスの新しいインスタンスを初期化する。
+
+C.
+
+**RegexCompilationInfo クラス**
+
+- 正規表現をコンパイルしてスタンドアロンアセンブリを作成するために使用する正規表現についての情報を提供する。
+
+D.
+
+- `RegexOptions.Compuled` : 正規表現をコンパイルしてアセンブリを作成することを指定する。
+これにより実行速度は速くなるが、起動にかかる時間は長くなる。
+
+**Regex クラス**
+
+- 変更不可の正規表現を表す。
+
+
 ## Question.1
 
 You write the following method (line numbers are included for reference only):
@@ -1433,202 +1492,7 @@ You may not need all of the code blocks.
 
 
 
-# Question.1-6
 
-You are developing an application that includes a class named UserTracker. 
-The application includes the following code segment. (Line numbers are included for reference only.)
-
-You need to add a user to the UserTracker instance.
-What should you do?
----
-
-UserTrackerという名前のクラスを含むアプリケーションを開発しています。 
-アプリケーションには、次のコードセグメントが含まれています。 （行番号は参照のみ。）
-
-UserTrackerインスタンスにユーザーを追加する必要があります。
-あなたは何をするべきか？
-
----
-
-**Answer: D**
-
-**Explanation:**
-
-**Option.A**
-
-- 文法エラー
-
-`現在のコンテキストに...は存在しません。`
-
-**Option.B**
-
-- 文法エラーはない
-
-**Option.C**
-
-- 文法エラーはない
-
-**Option.D**
-
-**Delegate クラス**
-
-- デリゲートとは静的メソッドを参照するデータ構造、またはクラスのインスタンスメソッドを参照するデータ構造
-
-[Delegate クラス](https://docs.microsoft.com/ja-jp/dotnet/api/system.delegate?view=netframework-4.8)
-
-**String クラス**
-
-- テキストを一連の UFT-16 コード単位として表現する
-
-**String と string の違い**
-
-- `string`　は予約語として定義されている識別子であり、`System.String` の別名である。
-- コンパイルすれば、`String` も `string` も同じものになる。
-- エイリアスを予約語に定義しているものの例
-	- `bool`:`System.Boolean`
-	- `int`:`System.Int32`
-- 使い分けるとき
-	- `String`:String クラスのメソッドを呼び出す場合
-	- `string`:字列の変数を定義する場合
-
-**入れ子にされた型**
-
-[入れ子にされた型 (C# プログラミング ガイド)](https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/classes-and-structs/nested-types)
-
-```c#
-public class Container
-{
-	class Nested
-	{
-		Nested() { }
-	}
-}
-```_
-
-- 外側のクラス、構造体、入れ子にされた方のいずれであっても、入れ子にされた型は規定で `private` になり、それが含まれる型からのみアクセス可能となる。
-	- 前の例では、`Nested` クラスは外部の型にアクセスできない。
-- 外側の型がクラスの場合、入れ子にされた型は...	`public`、`protected`、`internal`、`protected internal`、`private`、`private protected`になれる
-- 外側の型が構造体の場合、入れ子にされた型は...`public`、`internal`、`private`になれる
-- 入れ子にされた型は、外側の型にアクセスできる。
-	- アクセスするには、その型を引数として入れ子の型のコンストラクターに渡す。
-
-```c#
-public class Container
-{
-	public Class Nested
-	{
-		private Container parent;
-		public Nested()
-		{
-		}
-		public Nested(Container parent)
-		{
-			this.parent = parent;
-		}
-	}
-}
-```
-
-# Question.1-7
-
-You are adding a public method named UpdateScore to a public class named ScoreCard.
-The code region that updates the score field must meet the following requirements:
-- It must be accessed by only one thread at a time.
-- It must not be vulnerable to a deadlock situation.
-You need to implement the UpdateScore() method.
-What should you do?
-
-**A.** Place the code region inside the following lock statement:
-
-**B.** Add a private object named `lockObject` to the `ScoreCard` class. Place the code region inside the following lock statement:
-
-**C.** Apply the following attributbe to the `UpdateScore()` method signature:
-
-**D.** Add a public static object named `lockObject` to the `Scored` class. Place the code Region inside the following lock statement: 
-
----
-
-UpdateScoreという名前のパブリックメソッドをScoreCardという名前のパブリッククラスに追加しています。
-スコアフィールドを更新するコード領域は、次の要件を満たしている必要があります。
-- 一度に1つのスレッドのみがアクセスする必要があります。
-- デッドロック状態に対して脆弱であってはなりません。
-UpdateScore（）メソッドを実装する必要があります。
-あなたは何をするべきか？
-
-**A.** 次のロックステートメント内にコード領域を配置します。
-
-```c#
-lock (this)
-{
-	...
-}
-```
-
-**B.** `lockObject`という名前のプライベートオブジェクトを` ScoreCard`クラスに追加します。 コード領域を次のロックステートメント内に配置します。
-
-```c#
-lock (lockObject)
-{
-	...
-}
-```
-
-**C.** 次の属性を `UpdateScore()` メソッドシグネチャに適用します。
-
-```c#
-[MethodImp(MethodlOptions.Synchronized)]
-```
-
-**D.** `lockObject`という名前のパブリック静的オブジェクトを` Scored`クラスに追加します。 次のロックステートメント内にコードRegionを配置します。
-
-```c#
-lock (typeof(ScoreCard))
-{
-	...
-}
-```
-
----
-
-**Answer: B**
-
-**Exception:**
-
-**lock ステートメント**
-
-- `lock` ステートメントは、指定のオブジェクトに対する相互排除ロックを取得し、ステートメントブロックを実施してから解放する。
-- ロックが保たれている間、ロックを保持するスレッドでは、ロックを再取得し開放することができる。
-- 他のスレッドは、ブロックされてロックを取得できず、ロックが解放されるまで待機します。
-- `x` は参照型の式です。
-	- ロックオブジェクトとして使用してはいけないオブジェクト
-		- `this`: ロックとして呼び出し元に私用される可能性がありため。
-		- `Type` インスタンス: `typeof` 演算子またはリフレクションによって取得される可能性があるため。
-		- 文字列リテラルを含む文字列インスタンス: インターン処理される可能性があるため。
-
-```c#
-lock (x)
-{
-	// ...
-}
-```
-
-**A.** 
-
-- `this` は、ロックとして呼び出し元に私用される可能性があるため、ロックオブジェクトとして私用してはならない。
-
-[参照](https://docs.microsoft.com/ja-jp/dotnet/csharp/language-reference/keywords/lock-statement#remarks)
-
-**B.** 
-
-- 正解。
-
-**C.** 
-
-- 
-
-**D.** 
-
-- `typeof` 演算子またはリフレクションによって取得される可能性があるため。
 
 # Question.1-8
 
